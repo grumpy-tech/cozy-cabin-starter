@@ -6,11 +6,11 @@ import { ChevronDown } from "lucide-react";
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image - Replace with actual tour photo */}
+      {/* Background with cycling image */}
       <div className="absolute inset-0">
-        <div className="w-full h-full bg-gradient-to-br from-primary via-blue-600 to-amber-600" />
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
+        {/* Replace with actual hero cycling image */}
+        <div className="w-full h-full bg-gradient-to-br from-slate-800 via-slate-700 to-amber-600" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
       </div>
 
       {/* Content */}
@@ -25,9 +25,9 @@ export function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-amber-400 text-lg md:text-xl font-medium tracking-widest uppercase mb-4"
+            className="text-amber-400 text-base md:text-lg font-semibold tracking-wide uppercase mb-3"
           >
-            Cycle Logic Colombia Tours
+            Founded by Cycle Logic
           </motion.p>
           
           <motion.h1
@@ -36,18 +36,19 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="font-heading text-4xl md:text-6xl lg:text-7xl text-white font-bold mb-6 leading-tight"
           >
-            Ride Where the Coffee Grows and the Andes Rise
+            Colombia's Ultimate
+            <br />
+            <span className="text-amber-400">Cycling Adventure</span>
           </motion.h1>
           
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-white/90 text-xl md:text-2xl font-light mb-10 leading-relaxed"
+            className="text-white/90 text-xl md:text-2xl font-light mb-10 leading-relaxed max-w-3xl mx-auto"
           >
-            Journey through Colombia's coffee heartland and Andes mountains on fully guided 
-            road and gravel tours. More than exceptional riding—this is deep cultural immersion, 
-            genuine connection, and the cycling adventure you didn't know you needed.
+            Legendary Andes climbs • Coffee country gravel • Authentic culture • 
+            Exceptional food • Small groups • Professional support
           </motion.p>
           
           <motion.div
@@ -56,33 +57,39 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 1 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Link to="/booking">
+            <Link to="/experience">
               <Button 
                 size="lg" 
-                className="bg-amber-500 hover:bg-amber-600 text-white text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all hover:scale-105"
+                className="bg-amber-500 hover:bg-amber-600 text-white text-lg px-8 py-6 shadow-2xl hover:scale-105 transition-transform"
               >
-                View Tour Dates
+                Explore the Experience
               </Button>
             </Link>
-            <Link to="/experience">
+            <Link to="/booking">
               <Button 
                 variant="outline" 
                 size="lg" 
                 className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 text-lg px-8 py-6"
               >
-                Explore the Experience
+                View Tour Dates
               </Button>
             </Link>
           </motion.div>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.2 }}
-            className="mt-8 text-white/70 text-sm"
+            className="mt-10 flex flex-wrap justify-center gap-6 text-white/80 text-sm"
           >
-            January-February 2025 • 11 Days • $5,600 CAD • Limited to 12 Riders
-          </motion.p>
+            <span>11 Days</span>
+            <span>•</span>
+            <span>$5,600 CAD</span>
+            <span>•</span>
+            <span>Max 12 Riders</span>
+            <span>•</span>
+            <span>Jan-Feb 2025</span>
+          </motion.div>
         </motion.div>
       </div>
 
@@ -101,11 +108,6 @@ export function HeroSection() {
           <ChevronDown className="h-8 w-8" />
         </motion.div>
       </motion.div>
-
-      {/* Note for implementation: Replace background with actual hero image */}
-      <div className="absolute top-4 right-4 bg-yellow-400 text-black text-xs px-3 py-1 rounded-full font-semibold z-20">
-        📸 Add hero image: Cyclist cresting Andes pass at golden hour
-      </div>
     </section>
   );
 }
