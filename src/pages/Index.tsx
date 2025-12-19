@@ -22,7 +22,7 @@ const Index = () => {
     <main className="min-h-screen">
       <Navbar />
       
-      {/* HERO - NO EFFECTS, NORMAL IMAGE */}
+      {/* HERO - STANDARD IMAGE, NO EFFECTS */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
@@ -30,8 +30,6 @@ const Index = () => {
             alt="Cycling in Colombia" 
             className="w-full h-full object-cover"
           />
-          {/* Minimal overlay for text readability only */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/50 via-transparent to-white/40" />
         </div>
 
         <div className="relative z-10 container mx-auto px-4">
@@ -348,9 +346,9 @@ const Index = () => {
 
             <div className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
               {[
-                { num: "200+", label: "Happy Riders", icon: "🚴" },
-                { num: "4.9/5", label: "Average Rating", icon: "⭐" },
-                { num: "11", label: "Day Adventure", icon: "🏔️" }
+                { num: "200+", label: "Happy Riders" },
+                { num: "4.9/5", label: "Average Rating" },
+                { num: "11", label: "Day Adventure" }
               ].map((stat, i) => (
                 <motion.div 
                   key={i}
@@ -360,7 +358,6 @@ const Index = () => {
                   viewport={{ once: true }}
                   className="bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:border-[#F6995C]/50"
                 >
-                  <div className="text-4xl mb-3">{stat.icon}</div>
                   <div className="text-3xl font-bold text-[#EADFB4] mb-2">{stat.num}</div>
                   <div className="text-sm text-white/70 font-medium">{stat.label}</div>
                 </motion.div>
