@@ -22,15 +22,16 @@ const Index = () => {
     <main className="min-h-screen">
       <Navbar />
       
-      {/* HERO - BLACK TEXT for Founded by and Cycling Experience */}
+      {/* HERO - NO EFFECTS, NORMAL IMAGE */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src="/hero-background.jpg" 
             alt="Cycling in Colombia" 
-            className="w-full h-full object-cover brightness-110"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-transparent to-white/30" />
+          {/* Minimal overlay for text readability only */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/50 via-transparent to-white/40" />
         </div>
 
         <div className="relative z-10 container mx-auto px-4">
@@ -43,7 +44,6 @@ const Index = () => {
               transition={{ duration: 0.8 }}
               className="p-8 md:p-12"
             >
-              {/* BLACK TEXT */}
               <p className="text-black text-sm md:text-base font-semibold tracking-wide uppercase mb-3">
                 Founded by Cycle Logic
               </p>
@@ -63,7 +63,7 @@ const Index = () => {
                 <Button 
                   onClick={handleBookingClick}
                   size="lg" 
-                  className="bg-[#F6995C] hover:bg-[#e88849] text-white text-lg px-8 py-6 rounded-none border-0 shadow-lg"
+                  className="bg-[#F6995C] hover:bg-[#e88849] text-white text-lg px-8 py-6 rounded-none border-0 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
                 >
                   View Tour Dates
                 </Button>
@@ -74,7 +74,7 @@ const Index = () => {
                   }}
                   variant="outline" 
                   size="lg" 
-                  className="bg-white/90 border-2 border-[#51829B] text-[#51829B] hover:bg-[#51829B] hover:text-white text-lg px-8 py-6 rounded-none"
+                  className="bg-white/90 border-2 border-[#51829B] text-[#51829B] hover:bg-[#51829B] hover:text-white text-lg px-8 py-6 rounded-none shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   Get In Touch
                 </Button>
@@ -92,8 +92,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* MOUNTAIN RETREAT - Texture background */}
-      <section className="py-16 md:py-24 bg-white texture-dots">
+      {/* MOUNTAIN RETREAT */}
+      <section className="py-20 md:py-28 bg-white texture-dots">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <motion.div
@@ -101,7 +101,7 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="text-center mb-16"
             >
               <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4 text-[#51829B]">
                 Your Mountain Retreat
@@ -111,13 +111,13 @@ const Index = () => {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="grid md:grid-cols-2 gap-10 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className="relative h-[400px] md:h-[500px] overflow-hidden shadow-lg"
+                className="relative h-[400px] md:h-[500px] overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300"
               >
                 <img 
                   src="/property.jpg" 
@@ -143,7 +143,7 @@ const Index = () => {
                   This peaceful retreat is where you'll recover after challenging rides, watch sunsets over the Andes, 
                   and build friendships with fellow riders.
                 </p>
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {[
                     "Stunning mountain views from your room",
                     "Fresh mountain air and peaceful surroundings",
@@ -161,51 +161,58 @@ const Index = () => {
         </div>
       </section>
 
-      {/* STAGGERED TIMELINE - Cream texture background */}
-      <section className="py-16 md:py-24 bg-[#EADFB4] texture-subtle">
-        <div className="container mx-auto px-4">
+      {/* WHAT YOUR DAYS LOOK LIKE - Gradient background, 2/3 photos edge-to-edge, 1/3 cards */}
+      <section className="py-20 md:py-28 bg-gradient-to-br from-[#EADFB4] to-[#d4c89f] relative overflow-hidden">
+        <div className="absolute inset-0 texture-subtle opacity-30"></div>
+        
+        <div className="relative z-10">
+          <div className="container mx-auto px-4 mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4 text-[#51829B]">
+                What Your Days Look Like
+              </h2>
+              <p className="text-lg text-slate-700 max-w-2xl mx-auto">
+                Every day balances world-class riding with authentic cultural immersion
+              </p>
+            </motion.div>
+          </div>
+
+          {/* THE RIDING - Photo LEFT (2/3), Card RIGHT (1/3) */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="mb-12 md:mb-16"
           >
-            <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4 text-[#51829B]">
-              What Your Days Look Like
-            </h2>
-            <p className="text-lg text-slate-700 max-w-2xl mx-auto">
-              Every day balances world-class riding with authentic cultural immersion
-            </p>
-          </motion.div>
-
-          <div className="max-w-6xl mx-auto relative">
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 border-l-2 border-dashed border-[#9BB0C1] hidden md:block" 
-                 style={{ transform: 'translateX(-50%)' }} />
-
-            {/* THE RIDING - with cycling photo */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="mb-16 md:mb-24 grid md:grid-cols-2 gap-8 items-center"
-            >
-              <div className="bg-white p-8 shadow-md border border-[#9BB0C1] relative">
-                <div className="absolute -right-4 top-1/2 w-8 h-8 bg-[#F6995C] border-4 border-[#EADFB4] hidden md:block rounded-full keep-round"
-                     style={{ transform: 'translateY(-50%)' }} />
-                
+            <div className="grid md:grid-cols-3 gap-0">
+              <div className="md:col-span-2 relative h-[450px] overflow-hidden group">
+                <img 
+                  src="/hero-cycling.jpg" 
+                  alt="Cycling on mountain roads" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+              
+              <div className="md:col-span-1 bg-white p-6 md:p-8 shadow-lg border-l-4 border-[#F6995C] flex flex-col justify-center h-[450px]">
                 <h3 className="font-heading text-2xl font-semibold mb-4 text-[#51829B]">The Riding</h3>
                 
-                <div className="bg-slate-50 p-4 mb-4">
-                  <svg viewBox="0 0 500 180" className="w-full">
-                    <line x1="0" y1="150" x2="500" y2="150" stroke="#e5e7eb" strokeWidth="1"/>
+                <div className="bg-slate-50 p-3 mb-4">
+                  <svg viewBox="0 0 500 140" className="w-full">
                     <line x1="0" y1="120" x2="500" y2="120" stroke="#e5e7eb" strokeWidth="1"/>
                     <line x1="0" y1="90" x2="500" y2="90" stroke="#e5e7eb" strokeWidth="1"/>
                     <line x1="0" y1="60" x2="500" y2="60" stroke="#e5e7eb" strokeWidth="1"/>
+                    <line x1="0" y1="30" x2="500" y2="30" stroke="#e5e7eb" strokeWidth="1"/>
                     
                     <path 
-                      d="M0,140 L50,135 L100,150 L150,125 L200,110 L250,90 L300,100 L350,85 L400,95 L450,105 L500,115" 
+                      d="M0,110 L60,105 L120,115 L180,95 L240,80 L300,90 L360,75 L420,85 L480,95" 
                       fill="none" 
                       stroke="#F6995C" 
                       strokeWidth="3"
@@ -213,128 +220,100 @@ const Index = () => {
                     />
                     
                     <path 
-                      d="M0,140 L50,135 L100,150 L150,125 L200,110 L250,90 L300,100 L350,85 L400,95 L450,105 L500,115 L500,150 L0,150 Z" 
+                      d="M0,110 L60,105 L120,115 L180,95 L240,80 L300,90 L360,75 L420,85 L480,95 L480,120 L0,120 Z" 
                       fill="#F6995C" 
-                      opacity="0.1"
+                      opacity="0.15"
                     />
                     
-                    <text x="10" y="25" fill="#51829B" fontSize="16" fontWeight="bold">Route Profile</text>
-                    <text x="10" y="175" fill="#666" fontSize="12">Distance (km)</text>
-                    <text x="420" y="45" fill="#666" fontSize="11">Speed: 23.7 km/h</text>
+                    <text x="10" y="20" fill="#51829B" fontSize="14" fontWeight="bold">Route Profile</text>
                   </svg>
                   <p className="text-xs text-slate-500 mt-2 text-center">
                     60-100km daily | 1,000-2,000m climbing
                   </p>
                 </div>
                 
-                <p className="text-slate-700 leading-relaxed mb-4">
+                <p className="text-slate-700 leading-relaxed mb-3 text-sm">
                   Roads where pro teams train—challenging, stunning, fully supported. 
                   Mix of smooth tarmac and maintained gravel through coffee country.
                 </p>
-                <p className="text-sm text-slate-600 italic">
+                <p className="text-xs text-slate-600 italic">
                   Intermediate to advanced. Full vehicle support follows every ride.
                 </p>
               </div>
-              
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="h-[400px] overflow-hidden shadow-lg"
-              >
-                <img 
-                  src="/hero-cycling.jpg" 
-                  alt="Cycling on mountain roads" 
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-            </motion.div>
+            </div>
+          </motion.div>
 
-            {/* THE CULTURE - with photo on LEFT */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="mb-16 md:mb-24 grid md:grid-cols-2 gap-8 items-center"
-            >
-              {/* PHOTO LEFT - NAME: culture-photo.jpg */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="h-[400px] overflow-hidden shadow-lg"
-              >
-                <img 
-                  src="/culture-photo.jpg" 
-                  alt="Cultural experiences" 
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-
-              <div className="bg-white p-8 shadow-md border border-[#9BB0C1] relative">
-                <div className="absolute -left-4 top-1/2 w-8 h-8 bg-[#F6995C] border-4 border-[#EADFB4] hidden md:block rounded-full keep-round"
-                     style={{ transform: 'translateY(-50%)' }} />
-                
-                <Coffee className="h-12 w-12 text-[#F6995C] mb-6" />
+          {/* THE CULTURE - Card LEFT (1/3), Photo RIGHT (2/3) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-12 md:mb-16"
+          >
+            <div className="grid md:grid-cols-3 gap-0">
+              <div className="md:col-span-1 bg-white p-6 md:p-8 shadow-lg border-r-4 border-[#9BB0C1] flex flex-col justify-center h-[450px] order-2 md:order-1">
+                <Coffee className="h-10 w-10 text-[#F6995C] mb-4" />
                 <h3 className="font-heading text-2xl font-semibold mb-4 text-[#51829B]">The Culture</h3>
-                <p className="text-slate-700 leading-relaxed mb-4">
+                <p className="text-slate-700 leading-relaxed mb-3 text-sm">
                   Coffee farm visits with families who've been growing for generations. Market explorations. 
                   Traditional meals in home kitchens. You're not observing—you're participating.
                 </p>
-                <p className="text-sm text-slate-600 italic">
+                <p className="text-xs text-slate-600 italic">
                   Our guides introduce you as friends. The connections last beyond the tour.
                 </p>
               </div>
-            </motion.div>
 
-            {/* THE FOOD - with photo on LEFT */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="grid md:grid-cols-2 gap-8 items-center"
-            >
-              {/* PHOTO LEFT - NAME: food-photo.jpg */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="h-[400px] overflow-hidden shadow-lg md:order-1"
-              >
+              <div className="md:col-span-2 relative h-[450px] overflow-hidden group order-1 md:order-2">
+                <img 
+                  src="/culture-photo.jpg" 
+                  alt="Cultural experiences" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* THE FOOD - Photo LEFT (2/3), Card RIGHT (1/3) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="grid md:grid-cols-3 gap-0">
+              <div className="md:col-span-2 relative h-[450px] overflow-hidden group">
                 <img 
                   src="/food-photo.jpg" 
                   alt="Colombian food" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-              </motion.div>
-
-              <div className="bg-white p-8 shadow-md border border-[#9BB0C1] relative md:order-2">
-                <div className="absolute -right-4 top-1/2 w-8 h-8 bg-[#F6995C] border-4 border-[#EADFB4] hidden md:block rounded-full keep-round"
-                     style={{ transform: 'translateY(-50%)' }} />
-                
-                <Users className="h-12 w-12 text-[#F6995C] mb-6" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+              
+              <div className="md:col-span-1 bg-white p-6 md:p-8 shadow-lg border-l-4 border-[#51829B] flex flex-col justify-center h-[450px]">
+                <Users className="h-10 w-10 text-[#F6995C] mb-4" />
                 <h3 className="font-heading text-2xl font-semibold mb-4 text-[#51829B]">The Food</h3>
-                <p className="text-slate-700 leading-relaxed mb-4">
+                <p className="text-slate-700 leading-relaxed mb-3 text-sm">
                   Bandeja paisa after hard rides. Fresh trout from mountain streams. Colombian coffee that 
                   redefines what you thought you knew. Every meal connects you deeper to the region.
                 </p>
-                <p className="text-sm text-slate-600 italic">
+                <p className="text-xs text-slate-600 italic">
                   Maximum 12 riders means genuine connections form fast. Solo travelers always welcome.
                 </p>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* CTA - Grid texture */}
-      <section className="py-16 md:py-24 bg-[#51829B] text-white texture-grid">
-        <div className="container mx-auto px-4">
+      {/* CTA with improved visual hierarchy */}
+      <section className="py-20 md:py-28 bg-[#51829B] text-white texture-grid relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-[#F6995C] opacity-5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#9BB0C1] opacity-5 rounded-full blur-3xl"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -345,15 +324,15 @@ const Index = () => {
             <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6">
               Ready to Experience Colombia?
             </h2>
-            <p className="text-xl text-white/90 mb-8 leading-relaxed">
+            <p className="text-xl text-white/90 mb-10 leading-relaxed">
               Three departures in January-February 2025. Limited to 12 riders per tour. 
               $5,600 CAD includes accommodation, all meals, and guided tours.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-5 justify-center">
               <Button 
                 onClick={handleBookingClick}
                 size="lg" 
-                className="bg-[#F6995C] hover:bg-[#e88849] text-white text-lg px-8 py-6 rounded-none shadow-lg"
+                className="bg-[#F6995C] hover:bg-[#e88849] text-white text-lg px-10 py-7 rounded-none shadow-2xl hover:shadow-[#F6995C]/50 transition-all duration-300 transform hover:scale-105"
               >
                 View Dates & Book Your Spot
               </Button>
@@ -361,22 +340,30 @@ const Index = () => {
                 onClick={handleGalleryClick}
                 variant="outline" 
                 size="lg" 
-                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#51829B] text-lg px-8 py-6 rounded-none"
+                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#51829B] text-lg px-10 py-7 rounded-none shadow-xl hover:shadow-2xl transition-all duration-300"
               >
                 See Photo Gallery
               </Button>
             </div>
 
-            <div className="mt-12 grid grid-cols-3 gap-6 max-w-2xl mx-auto">
+            <div className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
               {[
-                { num: "200+", label: "Happy Riders" },
-                { num: "4.9/5", label: "Average Rating" },
-                { num: "11", label: "Day Adventure" }
+                { num: "200+", label: "Happy Riders", icon: "🚴" },
+                { num: "4.9/5", label: "Average Rating", icon: "⭐" },
+                { num: "11", label: "Day Adventure", icon: "🏔️" }
               ].map((stat, i) => (
-                <div key={i} className="border-t-2 border-[#F6995C] pt-4">
-                  <div className="text-3xl font-bold text-[#EADFB4] mb-1">{stat.num}</div>
-                  <div className="text-sm text-white/70">{stat.label}</div>
-                </div>
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:border-[#F6995C]/50"
+                >
+                  <div className="text-4xl mb-3">{stat.icon}</div>
+                  <div className="text-3xl font-bold text-[#EADFB4] mb-2">{stat.num}</div>
+                  <div className="text-sm text-white/70 font-medium">{stat.label}</div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
