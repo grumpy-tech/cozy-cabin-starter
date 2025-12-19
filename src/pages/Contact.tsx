@@ -154,7 +154,7 @@ const Contact = () => {
                     <MapPin className="h-6 w-6 text-[#F6995C] flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="font-heading text-lg font-semibold mb-2 text-[#51829B]">
-                        Based in Kelowna, BC
+                        Based in Kemloops, BC
                       </h3>
                       <p className="text-sm text-slate-600">
                         Tours operate in Medellín, Colombia
