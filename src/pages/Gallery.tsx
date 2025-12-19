@@ -2,12 +2,17 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Gallery = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
+  const navigate = useNavigate();
+
+  const handleBookingClick = () => {
+    navigate('/booking');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const categories = [
     { id: "all", name: "All Photos", description: "Every moment from our Colombia tours" },
@@ -19,7 +24,6 @@ const Gallery = () => {
     { id: "offbike", name: "Off The Bike", description: "Rest days and social moments" }
   ];
 
-  // Placeholder images - replace with actual tour photos
   const sampleCaptions = [
     "Morning light in Colombia's coffee heartland",
     "Earning every meter to the Alto de Minas",
@@ -43,7 +47,7 @@ const Gallery = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-b from-muted to-background">
+      <section className="relative py-16 bg-gradient-to-b from-slate-800 to-slate-900">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -51,18 +55,19 @@ const Gallery = () => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-white">
               Every Mile Tells a Story
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground">
-              These aren't just photos—they're moments from our Colombia tours that capture the rides, the landscapes, the connections, and the memories our riders take home. This could be your story next season.
+            <p className="text-lg md:text-xl text-white/80">
+              Moments from our Colombia tours that capture the rides, landscapes, connections, 
+              and memories. This could be your story next season.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Gallery Categories & Content */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <Tabs defaultValue="all" className="w-full">
             <TabsList className="flex flex-wrap justify-center mb-12 h-auto gap-2 bg-transparent">
@@ -70,7 +75,7 @@ const Gallery = () => {
                 <TabsTrigger
                   key={category.id}
                   value={category.id}
-                  className="px-6 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                  className="px-6 py-3 data-[state=active]:bg-amber-500 data-[state=active]:text-white"
                 >
                   {category.name}
                 </TabsTrigger>
@@ -80,12 +85,12 @@ const Gallery = () => {
             {categories.map((category) => (
               <TabsContent key={category.id} value={category.id} className="mt-8">
                 <div className="text-center mb-12">
-                  <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                     {category.description}
                   </p>
                 </div>
 
-                {/* Masonry Grid - Placeholder structure */}
+                {/* Masonry Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {sampleCaptions.slice(0, 12).map((caption, index) => (
                     <motion.div
@@ -94,15 +99,15 @@ const Gallery = () => {
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.4, delay: index * 0.05 }}
                       viewport={{ once: true }}
-                      className="group relative aspect-[4/3] bg-muted rounded-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
+                      className="group relative aspect-[4/3] bg-slate-100 rounded-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
                     >
-                      {/* Placeholder for image */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                        <span className="text-4xl opacity-20">🚴</span>
+                      {/* Placeholder gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-slate-300 to-slate-200 flex items-center justify-center">
+                        <span className="text-6xl opacity-20">🚴</span>
                       </div>
                       
                       {/* Caption Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity">
                         <div className="absolute bottom-0 left-0 right-0 p-4">
                           <p className="text-white text-sm font-medium">{caption}</p>
                         </div>
@@ -112,8 +117,8 @@ const Gallery = () => {
                 </div>
 
                 <div className="text-center mt-12">
-                  <p className="text-sm text-muted-foreground italic">
-                    Note: Add your actual tour photos here. Recommended: 60-80 high-quality images across all categories.
+                  <p className="text-sm text-slate-500 italic">
+                    📸 Add your tour photos here (60-80 images recommended)
                   </p>
                 </div>
               </TabsContent>
@@ -122,23 +127,29 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Gallery CTA */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-muted to-background">
+      {/* CTA - FIXED: Now scrolls to top of booking page */}
+      <section className="py-16 md:py-20 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
-              Ready to Create Your Own Colombian Cycling Story?
+              Ready to Create Your Own Story?
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8">
-              These photos represent just a fraction of what you'll experience over 11 days in Colombia. The climbs, the culture, the connections—they're waiting for you.
+            <p className="text-lg text-slate-700 mb-8">
+              These photos represent just a fraction of what you'll experience over 11 days. 
+              The climbs, the culture, the connections—they're waiting for you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/booking">
-                <Button variant="default" size="lg">
-                  View Tour Dates
-                </Button>
-              </Link>
-              <Button variant="outline" size="lg">
+              <Button 
+                onClick={handleBookingClick}
+                size="lg"
+                className="bg-amber-500 hover:bg-amber-600 text-white"
+              >
+                View Tour Dates
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+              >
                 Join Our Newsletter
               </Button>
             </div>
