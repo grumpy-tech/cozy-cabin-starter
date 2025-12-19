@@ -3,13 +3,12 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Gallery = () => {
   const navigate = useNavigate();
 
-  // FIXED: Scroll to top function
+  // FIXED: Properly scrolls to top of gallery page
   const handleBookingClick = () => {
     navigate('/booking');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -48,7 +47,7 @@ const Gallery = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative py-16 bg-gradient-to-b from-[#134686] to-[#0d3460]">
+      <section className="relative py-16 bg-gradient-to-b from-[#51829B] to-[#9BB0C1]">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -59,7 +58,7 @@ const Gallery = () => {
             <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-white">
               Every Mile Tells a Story
             </h1>
-            <p className="text-lg md:text-xl text-white/80">
+            <p className="text-lg md:text-xl text-white/90">
               Moments from our Colombia tours that capture the rides, landscapes, connections, 
               and memories. This could be your story next season.
             </p>
@@ -68,7 +67,7 @@ const Gallery = () => {
       </section>
 
       {/* Gallery Categories & Content */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-20 md:py-28 bg-white texture-dots">
         <div className="container mx-auto px-4">
           <Tabs defaultValue="all" className="w-full">
             <TabsList className="flex flex-wrap justify-center mb-12 h-auto gap-2 bg-transparent">
@@ -76,7 +75,7 @@ const Gallery = () => {
                 <TabsTrigger
                   key={category.id}
                   value={category.id}
-                  className="px-6 py-3 data-[state=active]:bg-[#ED3F27] data-[state=active]:text-white rounded-none"
+                  className="px-6 py-3 data-[state=active]:bg-[#F6995C] data-[state=active]:text-white border-2 border-transparent data-[state=active]:border-[#F6995C] rounded-none transition-all"
                 >
                   {category.name}
                 </TabsTrigger>
@@ -126,11 +125,11 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* CTA - FIXED: Scrolls to top of booking page */}
-      <section className="py-16 md:py-20 bg-[#FDF4E3]">
+      {/* CTA */}
+      <section className="py-20 md:py-28 bg-[#EADFB4] texture-subtle">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-[#134686]">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-[#51829B]">
               Ready to Create Your Own Story?
             </h2>
             <p className="text-lg text-slate-700 mb-8">
@@ -141,14 +140,14 @@ const Gallery = () => {
               <Button 
                 onClick={handleBookingClick}
                 size="lg"
-                className="bg-[#ED3F27] hover:bg-[#d63620] text-white rounded-none"
+                className="bg-[#F6995C] hover:bg-[#e88849] text-white rounded-none shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 View Tour Dates
               </Button>
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-2 border-[#134686] text-[#134686] hover:bg-[#134686] hover:text-white rounded-none"
+                className="border-2 border-[#51829B] text-[#51829B] hover:bg-[#51829B] hover:text-white rounded-none shadow-md hover:shadow-lg transition-all duration-300"
               >
                 Join Our Newsletter
               </Button>
