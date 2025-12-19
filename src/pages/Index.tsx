@@ -22,7 +22,7 @@ const Index = () => {
     <main className="min-h-screen">
       <Navbar />
       
-      {/* HERO SECTION */}
+      {/* HERO - BLACK TEXT for Founded by and Cycling Experience */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
@@ -30,7 +30,7 @@ const Index = () => {
             alt="Cycling in Colombia" 
             className="w-full h-full object-cover brightness-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-transparent to-white/30" />
         </div>
 
         <div className="relative z-10 container mx-auto px-4">
@@ -42,19 +42,19 @@ const Index = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               className="p-8 md:p-12"
-              style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}
             >
-              <p className="text-[#FEB21A] text-sm md:text-base font-semibold tracking-wide uppercase mb-3">
+              {/* BLACK TEXT */}
+              <p className="text-black text-sm md:text-base font-semibold tracking-wide uppercase mb-3">
                 Founded by Cycle Logic
               </p>
               
-              <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl text-white font-bold mb-6 leading-tight">
-                Colombia's Ultimate
+              <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                <span className="text-black">Colombia's Ultimate</span>
                 <br />
-                <span className="text-[#FEB21A]">Cycling Experience</span>
+                <span className="text-black">Cycling Experience</span>
               </h1>
               
-              <p className="text-white text-lg md:text-xl mb-8 leading-relaxed">
+              <p className="text-slate-800 text-lg md:text-xl mb-8 leading-relaxed font-medium">
                 Legendary Andes climbs • Authentic culture • 
                 Exceptional food • Mountain retreat accommodation
               </p>
@@ -63,7 +63,7 @@ const Index = () => {
                 <Button 
                   onClick={handleBookingClick}
                   size="lg" 
-                  className="bg-[#ED3F27] hover:bg-[#d63620] text-white text-lg px-8 py-6 rounded-none border-0"
+                  className="bg-[#F6995C] hover:bg-[#e88849] text-white text-lg px-8 py-6 rounded-none border-0 shadow-lg"
                 >
                   View Tour Dates
                 </Button>
@@ -74,13 +74,13 @@ const Index = () => {
                   }}
                   variant="outline" 
                   size="lg" 
-                  className="bg-white/10 border-2 border-white text-white hover:bg-white hover:text-[#134686] text-lg px-8 py-6 rounded-none"
+                  className="bg-white/90 border-2 border-[#51829B] text-[#51829B] hover:bg-[#51829B] hover:text-white text-lg px-8 py-6 rounded-none"
                 >
                   Get In Touch
                 </Button>
               </div>
 
-              <div className="flex flex-wrap gap-4 text-white text-sm">
+              <div className="flex flex-wrap gap-4 text-slate-800 text-sm font-medium">
                 <span>11 Days</span>
                 <span>•</span>
                 <span>$5,600 CAD</span>
@@ -92,8 +92,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* YOUR MOUNTAIN RETREAT */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* MOUNTAIN RETREAT - Texture background */}
+      <section className="py-16 md:py-24 bg-white texture-dots">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <motion.div
@@ -103,7 +103,7 @@ const Index = () => {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4 text-[#134686]">
+              <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4 text-[#51829B]">
                 Your Mountain Retreat
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -117,7 +117,7 @@ const Index = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className="relative h-[400px] md:h-[500px] overflow-hidden"
+                className="relative h-[400px] md:h-[500px] overflow-hidden shadow-lg"
               >
                 <img 
                   src="/property.jpg" 
@@ -133,8 +133,8 @@ const Index = () => {
                 viewport={{ once: true }}
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <HomeIcon className="h-8 w-8 text-[#ED3F27]" />
-                  <h3 className="font-heading text-2xl md:text-3xl font-semibold text-[#134686]">
+                  <HomeIcon className="h-8 w-8 text-[#F6995C]" />
+                  <h3 className="font-heading text-2xl md:text-3xl font-semibold text-[#51829B]">
                     Surrounded by Nature
                   </h3>
                 </div>
@@ -150,7 +150,7 @@ const Index = () => {
                     "Perfect base for exploring the coffee region"
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[#ED3F27] flex-shrink-0 mt-1" />
+                      <Check className="h-5 w-5 text-[#F6995C] flex-shrink-0 mt-1" />
                       <span className="text-slate-700">{item}</span>
                     </div>
                   ))}
@@ -161,8 +161,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* STAGGERED TIMELINE */}
-      <section className="py-16 md:py-24 bg-[#FDF4E3]">
+      {/* STAGGERED TIMELINE - Cream texture background */}
+      <section className="py-16 md:py-24 bg-[#EADFB4] texture-subtle">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -171,20 +171,19 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4 text-[#134686]">
+            <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4 text-[#51829B]">
               What Your Days Look Like
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            <p className="text-lg text-slate-700 max-w-2xl mx-auto">
               Every day balances world-class riding with authentic cultural immersion
             </p>
           </motion.div>
 
           <div className="max-w-6xl mx-auto relative">
-            {/* Vertical dotted line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 border-l-2 border-dashed border-[#ED3F27] hidden md:block" 
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 border-l-2 border-dashed border-[#9BB0C1] hidden md:block" 
                  style={{ transform: 'translateX(-50%)' }} />
 
-            {/* THE RIDING - LEFT with elevation chart AND cycling photo on right */}
+            {/* THE RIDING - with cycling photo */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -192,13 +191,12 @@ const Index = () => {
               viewport={{ once: true }}
               className="mb-16 md:mb-24 grid md:grid-cols-2 gap-8 items-center"
             >
-              <div className="bg-white p-8 shadow-md border border-slate-200 relative">
-                <div className="absolute -right-4 top-1/2 w-8 h-8 bg-[#ED3F27] border-4 border-[#FDF4E3] hidden md:block rounded-full keep-round"
+              <div className="bg-white p-8 shadow-md border border-[#9BB0C1] relative">
+                <div className="absolute -right-4 top-1/2 w-8 h-8 bg-[#F6995C] border-4 border-[#EADFB4] hidden md:block rounded-full keep-round"
                      style={{ transform: 'translateY(-50%)' }} />
                 
-                <h3 className="font-heading text-2xl font-semibold mb-4 text-[#134686]">The Riding</h3>
+                <h3 className="font-heading text-2xl font-semibold mb-4 text-[#51829B]">The Riding</h3>
                 
-                {/* Elevation profile SVG */}
                 <div className="bg-slate-50 p-4 mb-4">
                   <svg viewBox="0 0 500 180" className="w-full">
                     <line x1="0" y1="150" x2="500" y2="150" stroke="#e5e7eb" strokeWidth="1"/>
@@ -209,18 +207,18 @@ const Index = () => {
                     <path 
                       d="M0,140 L50,135 L100,150 L150,125 L200,110 L250,90 L300,100 L350,85 L400,95 L450,105 L500,115" 
                       fill="none" 
-                      stroke="#ED3F27" 
+                      stroke="#F6995C" 
                       strokeWidth="3"
                       strokeLinecap="round"
                     />
                     
                     <path 
                       d="M0,140 L50,135 L100,150 L150,125 L200,110 L250,90 L300,100 L350,85 L400,95 L450,105 L500,115 L500,150 L0,150 Z" 
-                      fill="#ED3F27" 
+                      fill="#F6995C" 
                       opacity="0.1"
                     />
                     
-                    <text x="10" y="25" fill="#134686" fontSize="16" fontWeight="bold">Route Profile</text>
+                    <text x="10" y="25" fill="#51829B" fontSize="16" fontWeight="bold">Route Profile</text>
                     <text x="10" y="175" fill="#666" fontSize="12">Distance (km)</text>
                     <text x="420" y="45" fill="#666" fontSize="11">Speed: 23.7 km/h</text>
                   </svg>
@@ -238,13 +236,12 @@ const Index = () => {
                 </p>
               </div>
               
-              {/* CYCLING PHOTO - Right side */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="h-[400px] overflow-hidden"
+                className="h-[400px] overflow-hidden shadow-lg"
               >
                 <img 
                   src="/hero-cycling.jpg" 
@@ -254,7 +251,7 @@ const Index = () => {
               </motion.div>
             </motion.div>
 
-            {/* THE CULTURE - RIGHT */}
+            {/* THE CULTURE - with photo on LEFT */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -262,13 +259,27 @@ const Index = () => {
               viewport={{ once: true }}
               className="mb-16 md:mb-24 grid md:grid-cols-2 gap-8 items-center"
             >
-              <div className="hidden md:block"></div>
-              <div className="bg-white p-8 shadow-md border border-slate-200 relative">
-                <div className="absolute -left-4 top-1/2 w-8 h-8 bg-[#ED3F27] border-4 border-[#FDF4E3] hidden md:block rounded-full keep-round"
+              {/* PHOTO LEFT - NAME: culture-photo.jpg */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="h-[400px] overflow-hidden shadow-lg"
+              >
+                <img 
+                  src="/culture-photo.jpg" 
+                  alt="Cultural experiences" 
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+
+              <div className="bg-white p-8 shadow-md border border-[#9BB0C1] relative">
+                <div className="absolute -left-4 top-1/2 w-8 h-8 bg-[#F6995C] border-4 border-[#EADFB4] hidden md:block rounded-full keep-round"
                      style={{ transform: 'translateY(-50%)' }} />
                 
-                <Coffee className="h-12 w-12 text-[#ED3F27] mb-6" />
-                <h3 className="font-heading text-2xl font-semibold mb-4 text-[#134686]">The Culture</h3>
+                <Coffee className="h-12 w-12 text-[#F6995C] mb-6" />
+                <h3 className="font-heading text-2xl font-semibold mb-4 text-[#51829B]">The Culture</h3>
                 <p className="text-slate-700 leading-relaxed mb-4">
                   Coffee farm visits with families who've been growing for generations. Market explorations. 
                   Traditional meals in home kitchens. You're not observing—you're participating.
@@ -279,7 +290,7 @@ const Index = () => {
               </div>
             </motion.div>
 
-            {/* THE FOOD - LEFT */}
+            {/* THE FOOD - with photo on LEFT */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -287,12 +298,27 @@ const Index = () => {
               viewport={{ once: true }}
               className="grid md:grid-cols-2 gap-8 items-center"
             >
-              <div className="bg-white p-8 shadow-md border border-slate-200 relative">
-                <div className="absolute -right-4 top-1/2 w-8 h-8 bg-[#ED3F27] border-4 border-[#FDF4E3] hidden md:block rounded-full keep-round"
+              {/* PHOTO LEFT - NAME: food-photo.jpg */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="h-[400px] overflow-hidden shadow-lg md:order-1"
+              >
+                <img 
+                  src="/food-photo.jpg" 
+                  alt="Colombian food" 
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+
+              <div className="bg-white p-8 shadow-md border border-[#9BB0C1] relative md:order-2">
+                <div className="absolute -right-4 top-1/2 w-8 h-8 bg-[#F6995C] border-4 border-[#EADFB4] hidden md:block rounded-full keep-round"
                      style={{ transform: 'translateY(-50%)' }} />
                 
-                <Users className="h-12 w-12 text-[#ED3F27] mb-6" />
-                <h3 className="font-heading text-2xl font-semibold mb-4 text-[#134686]">The Food</h3>
+                <Users className="h-12 w-12 text-[#F6995C] mb-6" />
+                <h3 className="font-heading text-2xl font-semibold mb-4 text-[#51829B]">The Food</h3>
                 <p className="text-slate-700 leading-relaxed mb-4">
                   Bandeja paisa after hard rides. Fresh trout from mountain streams. Colombian coffee that 
                   redefines what you thought you knew. Every meal connects you deeper to the region.
@@ -301,14 +327,13 @@ const Index = () => {
                   Maximum 12 riders means genuine connections form fast. Solo travelers always welcome.
                 </p>
               </div>
-              <div className="hidden md:block"></div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 md:py-24 bg-[#134686] text-white">
+      {/* CTA - Grid texture */}
+      <section className="py-16 md:py-24 bg-[#51829B] text-white texture-grid">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -328,7 +353,7 @@ const Index = () => {
               <Button 
                 onClick={handleBookingClick}
                 size="lg" 
-                className="bg-[#ED3F27] hover:bg-[#d63620] text-white text-lg px-8 py-6 rounded-none"
+                className="bg-[#F6995C] hover:bg-[#e88849] text-white text-lg px-8 py-6 rounded-none shadow-lg"
               >
                 View Dates & Book Your Spot
               </Button>
@@ -336,7 +361,7 @@ const Index = () => {
                 onClick={handleGalleryClick}
                 variant="outline" 
                 size="lg" 
-                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#134686] text-lg px-8 py-6 rounded-none"
+                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#51829B] text-lg px-8 py-6 rounded-none"
               >
                 See Photo Gallery
               </Button>
@@ -348,8 +373,8 @@ const Index = () => {
                 { num: "4.9/5", label: "Average Rating" },
                 { num: "11", label: "Day Adventure" }
               ].map((stat, i) => (
-                <div key={i} className="border-t-2 border-[#ED3F27] pt-4">
-                  <div className="text-3xl font-bold text-[#FEB21A] mb-1">{stat.num}</div>
+                <div key={i} className="border-t-2 border-[#F6995C] pt-4">
+                  <div className="text-3xl font-bold text-[#EADFB4] mb-1">{stat.num}</div>
                   <div className="text-sm text-white/70">{stat.label}</div>
                 </div>
               ))}

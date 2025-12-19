@@ -40,12 +40,13 @@ export function Navbar() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        "bg-[#134686]/95 backdrop-blur-md shadow-lg",
-        isScrolled ? "py-3" : "py-5"
+        "bg-[#51829B]/95 backdrop-blur-md shadow-md",
+        // SLIMMER PADDING
+        isScrolled ? "py-2" : "py-3"
       )}
     >
       <nav className="container mx-auto px-4 flex items-center justify-between">
-        {/* Logo - NO TEXT, just image */}
+        {/* Logo */}
         <button 
           onClick={() => handleNavClick("/")}
           className="flex items-center group cursor-pointer"
@@ -53,21 +54,21 @@ export function Navbar() {
           <img 
             src="/logo.png" 
             alt="Cycle Logic" 
-            className="h-10 w-auto transition-transform group-hover:scale-105"
+            className="h-8 w-auto transition-transform group-hover:scale-105"
           />
         </button>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation - Smaller text */}
         <ul className="hidden md:flex items-center gap-1">
           {navItems.map((item) => (
             <li key={item.name}>
               <button
                 onClick={() => handleNavClick(item.path)}
                 className={cn(
-                  "px-4 py-2 text-sm font-medium transition-all duration-300",
+                  "px-3 py-1.5 text-sm font-medium transition-all duration-300",
                   location.pathname === item.path
-                    ? "text-[#FEB21A] bg-white/10"
-                    : "text-white hover:text-[#FEB21A] hover:bg-white/10"
+                    ? "text-[#F6995C] bg-white/10"
+                    : "text-white hover:text-[#F6995C] hover:bg-white/10"
                 )}
               >
                 {item.name}
@@ -76,12 +77,11 @@ export function Navbar() {
           ))}
         </ul>
 
-        {/* Book Now Button */}
+        {/* Book Now Button - Smaller */}
         <button onClick={() => handleNavClick("/booking")} className="hidden md:block">
           <Button 
-            variant="default" 
-            size="lg"
-            className="bg-[#ED3F27] hover:bg-[#d63620] text-white transition-all duration-300 rounded-none"
+            size="default"
+            className="bg-[#F6995C] hover:bg-[#e88849] text-white transition-all duration-300 rounded-none px-6 py-2 h-9"
           >
             Book Now
           </Button>
@@ -90,10 +90,10 @@ export function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 text-white hover:text-[#FEB21A] transition-colors"
+          className="md:hidden p-2 text-white hover:text-[#F6995C] transition-colors"
           aria-label="Toggle menu"
         >
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </nav>
 
@@ -104,9 +104,9 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#134686] border-t border-white/10"
+            className="md:hidden bg-[#51829B] border-t border-white/10"
           >
-            <ul className="container mx-auto px-4 py-4 space-y-2">
+            <ul className="container mx-auto px-4 py-3 space-y-1">
               {navItems.map((item, index) => (
                 <motion.li
                   key={item.name}
@@ -117,9 +117,9 @@ export function Navbar() {
                   <button
                     onClick={() => handleNavClick(item.path)}
                     className={cn(
-                      "block w-full text-left px-4 py-3 text-base font-medium transition-colors",
+                      "block w-full text-left px-3 py-2 text-sm font-medium transition-colors",
                       location.pathname === item.path
-                        ? "bg-[#ED3F27]/20 text-[#FEB21A]"
+                        ? "bg-[#F6995C]/20 text-[#F6995C]"
                         : "text-white hover:bg-white/10"
                     )}
                   >
@@ -134,7 +134,7 @@ export function Navbar() {
                 className="pt-2"
               >
                 <button onClick={() => handleNavClick("/booking")} className="w-full">
-                  <Button variant="default" size="lg" className="w-full bg-[#ED3F27] hover:bg-[#d63620] rounded-none">
+                  <Button size="default" className="w-full bg-[#F6995C] hover:bg-[#e88849] rounded-none h-9">
                     Book Now
                   </Button>
                 </button>
