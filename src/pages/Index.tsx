@@ -8,21 +8,22 @@ import { Coffee, Users, Home as HomeIcon, Check } from "lucide-react";
 const Index = () => {
   const navigate = useNavigate();
 
+  // FIXED: Properly navigate AND scroll to top
   const handleBookingClick = () => {
     navigate('/booking');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' }), 0);
   };
 
   const handleGalleryClick = () => {
     navigate('/gallery');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' }), 0);
   };
 
   return (
     <main className="min-h-screen">
       <Navbar />
       
-      {/* HERO - STANDARD IMAGE, NO EFFECTS */}
+      {/* HERO - STANDARD IMAGE */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
@@ -61,18 +62,18 @@ const Index = () => {
                 <Button 
                   onClick={handleBookingClick}
                   size="lg" 
-                  className="bg-[#F6995C] hover:bg-[#e88849] text-white text-lg px-8 py-6 rounded-none border-0 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                  className="bg-[#EB8317] hover:bg-[#d67515] text-white text-lg px-8 py-6 rounded-none border-0 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
                 >
                   View Tour Dates
                 </Button>
                 <Button 
                   onClick={() => {
                     navigate('/contact');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' }), 0);
                   }}
                   variant="outline" 
                   size="lg" 
-                  className="bg-white/90 border-2 border-[#51829B] text-[#51829B] hover:bg-[#51829B] hover:text-white text-lg px-8 py-6 rounded-none shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-white/90 border-2 border-[#10375C] text-[#10375C] hover:bg-[#10375C] hover:text-white text-lg px-8 py-6 rounded-none shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   Get In Touch
                 </Button>
@@ -101,7 +102,7 @@ const Index = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4 text-[#51829B]">
+              <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4 text-[#10375C]">
                 Your Mountain Retreat
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -131,8 +132,8 @@ const Index = () => {
                 viewport={{ once: true }}
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <HomeIcon className="h-8 w-8 text-[#F6995C]" />
-                  <h3 className="font-heading text-2xl md:text-3xl font-semibold text-[#51829B]">
+                  <HomeIcon className="h-8 w-8 text-[#EB8317]" />
+                  <h3 className="font-heading text-2xl md:text-3xl font-semibold text-[#10375C]">
                     Surrounded by Nature
                   </h3>
                 </div>
@@ -148,7 +149,7 @@ const Index = () => {
                     "Perfect base for exploring the coffee region"
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[#F6995C] flex-shrink-0 mt-1" />
+                      <Check className="h-5 w-5 text-[#EB8317] flex-shrink-0 mt-1" />
                       <span className="text-slate-700">{item}</span>
                     </div>
                   ))}
@@ -159,10 +160,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* WHAT YOUR DAYS LOOK LIKE - Gradient background, 2/3 photos edge-to-edge, 1/3 cards */}
-      <section className="py-20 md:py-28 bg-gradient-to-br from-[#EADFB4] to-[#d4c89f] relative overflow-hidden">
-        <div className="absolute inset-0 texture-subtle opacity-30"></div>
-        
+      {/* WHAT YOUR DAYS LOOK LIKE - With grainy gradient texture */}
+      <section className="py-20 md:py-28 bg-gradient-to-br from-[#F4F6FF] to-[#e8ebff] relative overflow-hidden texture-gradient">
         <div className="relative z-10">
           <div className="container mx-auto px-4 mb-16">
             <motion.div
@@ -172,7 +171,7 @@ const Index = () => {
               viewport={{ once: true }}
               className="text-center"
             >
-              <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4 text-[#51829B]">
+              <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4 text-[#10375C]">
                 What Your Days Look Like
               </h2>
               <p className="text-lg text-slate-700 max-w-2xl mx-auto">
@@ -181,7 +180,7 @@ const Index = () => {
             </motion.div>
           </div>
 
-          {/* THE RIDING - Photo LEFT (2/3), Card RIGHT (1/3) */}
+          {/* THE RIDING */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -199,8 +198,8 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               
-              <div className="md:col-span-1 bg-white p-6 md:p-8 shadow-lg border-l-4 border-[#F6995C] flex flex-col justify-center h-[450px]">
-                <h3 className="font-heading text-2xl font-semibold mb-4 text-[#51829B]">The Riding</h3>
+              <div className="md:col-span-1 bg-white p-6 md:p-8 shadow-lg border-l-4 border-[#EB8317] flex flex-col justify-center h-[450px]">
+                <h3 className="font-heading text-2xl font-semibold mb-4 text-[#10375C]">The Riding</h3>
                 
                 <div className="bg-slate-50 p-3 mb-4">
                   <svg viewBox="0 0 500 140" className="w-full">
@@ -212,18 +211,18 @@ const Index = () => {
                     <path 
                       d="M0,110 L60,105 L120,115 L180,95 L240,80 L300,90 L360,75 L420,85 L480,95" 
                       fill="none" 
-                      stroke="#F6995C" 
+                      stroke="#EB8317" 
                       strokeWidth="3"
                       strokeLinecap="round"
                     />
                     
                     <path 
                       d="M0,110 L60,105 L120,115 L180,95 L240,80 L300,90 L360,75 L420,85 L480,95 L480,120 L0,120 Z" 
-                      fill="#F6995C" 
+                      fill="#EB8317" 
                       opacity="0.15"
                     />
                     
-                    <text x="10" y="20" fill="#51829B" fontSize="14" fontWeight="bold">Route Profile</text>
+                    <text x="10" y="20" fill="#10375C" fontSize="14" fontWeight="bold">Route Profile</text>
                   </svg>
                   <p className="text-xs text-slate-500 mt-2 text-center">
                     60-100km daily | 1,000-2,000m climbing
@@ -241,7 +240,7 @@ const Index = () => {
             </div>
           </motion.div>
 
-          {/* THE CULTURE - Card LEFT (1/3), Photo RIGHT (2/3) */}
+          {/* THE CULTURE */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -250,9 +249,9 @@ const Index = () => {
             className="mb-12 md:mb-16"
           >
             <div className="grid md:grid-cols-3 gap-0">
-              <div className="md:col-span-1 bg-white p-6 md:p-8 shadow-lg border-r-4 border-[#9BB0C1] flex flex-col justify-center h-[450px] order-2 md:order-1">
-                <Coffee className="h-10 w-10 text-[#F6995C] mb-4" />
-                <h3 className="font-heading text-2xl font-semibold mb-4 text-[#51829B]">The Culture</h3>
+              <div className="md:col-span-1 bg-white p-6 md:p-8 shadow-lg border-r-4 border-[#F3C623] flex flex-col justify-center h-[450px] order-2 md:order-1">
+                <Coffee className="h-10 w-10 text-[#EB8317] mb-4" />
+                <h3 className="font-heading text-2xl font-semibold mb-4 text-[#10375C]">The Culture</h3>
                 <p className="text-slate-700 leading-relaxed mb-3 text-sm">
                   Coffee farm visits with families who've been growing for generations. Market explorations. 
                   Traditional meals in home kitchens. You're not observing—you're participating.
@@ -273,7 +272,7 @@ const Index = () => {
             </div>
           </motion.div>
 
-          {/* THE FOOD - Photo LEFT (2/3), Card RIGHT (1/3) */}
+          {/* THE FOOD */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -290,9 +289,9 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               
-              <div className="md:col-span-1 bg-white p-6 md:p-8 shadow-lg border-l-4 border-[#51829B] flex flex-col justify-center h-[450px]">
-                <Users className="h-10 w-10 text-[#F6995C] mb-4" />
-                <h3 className="font-heading text-2xl font-semibold mb-4 text-[#51829B]">The Food</h3>
+              <div className="md:col-span-1 bg-white p-6 md:p-8 shadow-lg border-l-4 border-[#10375C] flex flex-col justify-center h-[450px]">
+                <Users className="h-10 w-10 text-[#EB8317] mb-4" />
+                <h3 className="font-heading text-2xl font-semibold mb-4 text-[#10375C]">The Food</h3>
                 <p className="text-slate-700 leading-relaxed mb-3 text-sm">
                   Bandeja paisa after hard rides. Fresh trout from mountain streams. Colombian coffee that 
                   redefines what you thought you knew. Every meal connects you deeper to the region.
@@ -306,10 +305,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA with improved visual hierarchy */}
-      <section className="py-20 md:py-28 bg-[#51829B] text-white texture-grid relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-[#F6995C] opacity-5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#9BB0C1] opacity-5 rounded-full blur-3xl"></div>
+      {/* CTA */}
+      <section className="py-20 md:py-28 bg-[#10375C] text-white texture-grid relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-[#EB8317] opacity-5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#F3C623] opacity-5 rounded-full blur-3xl"></div>
         
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -330,7 +329,7 @@ const Index = () => {
               <Button 
                 onClick={handleBookingClick}
                 size="lg" 
-                className="bg-[#F6995C] hover:bg-[#e88849] text-white text-lg px-10 py-7 rounded-none shadow-2xl hover:shadow-[#F6995C]/50 transition-all duration-300 transform hover:scale-105"
+                className="bg-[#EB8317] hover:bg-[#d67515] text-white text-lg px-10 py-7 rounded-none shadow-2xl hover:shadow-[#EB8317]/50 transition-all duration-300 transform hover:scale-105"
               >
                 View Dates & Book Your Spot
               </Button>
@@ -338,7 +337,7 @@ const Index = () => {
                 onClick={handleGalleryClick}
                 variant="outline" 
                 size="lg" 
-                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#51829B] text-lg px-10 py-7 rounded-none shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#10375C] text-lg px-10 py-7 rounded-none shadow-xl hover:shadow-2xl transition-all duration-300"
               >
                 See Photo Gallery
               </Button>
@@ -356,9 +355,9 @@ const Index = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:border-[#F6995C]/50"
+                  className="bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:border-[#EB8317]/50"
                 >
-                  <div className="text-3xl font-bold text-[#EADFB4] mb-2">{stat.num}</div>
+                  <div className="text-3xl font-bold text-[#F3C623] mb-2">{stat.num}</div>
                   <div className="text-sm text-white/70 font-medium">{stat.label}</div>
                 </motion.div>
               ))}
