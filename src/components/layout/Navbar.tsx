@@ -40,13 +40,12 @@ export function Navbar() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        "bg-[#51829B]/95 backdrop-blur-md shadow-md",
-        // SLIMMER PADDING
+        "bg-[#10375C]/95 backdrop-blur-md shadow-md",
         isScrolled ? "py-2" : "py-3"
       )}
     >
       <nav className="container mx-auto px-4 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo - BIGGER (h-12 instead of h-8) */}
         <button 
           onClick={() => handleNavClick("/")}
           className="flex items-center group cursor-pointer"
@@ -54,11 +53,11 @@ export function Navbar() {
           <img 
             src="/logo.png" 
             alt="Cycle Logic" 
-            className="h-8 w-auto transition-transform group-hover:scale-105"
+            className="h-12 w-auto transition-transform group-hover:scale-105"
           />
         </button>
 
-        {/* Desktop Navigation - Smaller text */}
+        {/* Desktop Navigation */}
         <ul className="hidden md:flex items-center gap-1">
           {navItems.map((item) => (
             <li key={item.name}>
@@ -67,8 +66,8 @@ export function Navbar() {
                 className={cn(
                   "px-3 py-1.5 text-sm font-medium transition-all duration-300",
                   location.pathname === item.path
-                    ? "text-[#F6995C] bg-white/10"
-                    : "text-white hover:text-[#F6995C] hover:bg-white/10"
+                    ? "text-[#F3C623] bg-white/10"
+                    : "text-white hover:text-[#F3C623] hover:bg-white/10"
                 )}
               >
                 {item.name}
@@ -77,11 +76,11 @@ export function Navbar() {
           ))}
         </ul>
 
-        {/* Book Now Button - Smaller */}
+        {/* Book Now Button */}
         <button onClick={() => handleNavClick("/booking")} className="hidden md:block">
           <Button 
             size="default"
-            className="bg-[#F6995C] hover:bg-[#e88849] text-white transition-all duration-300 rounded-none px-6 py-2 h-9"
+            className="bg-[#EB8317] hover:bg-[#d67515] text-white transition-all duration-300 rounded-none px-6 py-2 h-9 font-medium"
           >
             Book Now
           </Button>
@@ -90,7 +89,7 @@ export function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 text-white hover:text-[#F6995C] transition-colors"
+          className="md:hidden p-2 text-white hover:text-[#F3C623] transition-colors"
           aria-label="Toggle menu"
         >
           {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -104,7 +103,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#51829B] border-t border-white/10"
+            className="md:hidden bg-[#10375C] border-t border-white/10"
           >
             <ul className="container mx-auto px-4 py-3 space-y-1">
               {navItems.map((item, index) => (
@@ -119,7 +118,7 @@ export function Navbar() {
                     className={cn(
                       "block w-full text-left px-3 py-2 text-sm font-medium transition-colors",
                       location.pathname === item.path
-                        ? "bg-[#F6995C]/20 text-[#F6995C]"
+                        ? "bg-[#EB8317]/20 text-[#F3C623]"
                         : "text-white hover:bg-white/10"
                     )}
                   >
@@ -134,7 +133,7 @@ export function Navbar() {
                 className="pt-2"
               >
                 <button onClick={() => handleNavClick("/booking")} className="w-full">
-                  <Button size="default" className="w-full bg-[#F6995C] hover:bg-[#e88849] rounded-none h-9">
+                  <Button size="default" className="w-full bg-[#EB8317] hover:bg-[#d67515] rounded-none h-9">
                     Book Now
                   </Button>
                 </button>
