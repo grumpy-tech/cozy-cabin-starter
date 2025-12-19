@@ -2,8 +2,8 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
-import { Mountain, Coffee, Users, Home as HomeIcon, Check, TrendingUp } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Mountain, Coffee, Users, Home as HomeIcon, Check } from "lucide-react";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -13,46 +13,54 @@ const Index = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleContactClick = () => {
+    navigate('/contact');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleGalleryClick = () => {
+    navigate('/gallery');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <main className="min-h-screen bg-[#F5F5F5]">
+    <main className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <Navbar />
       
-      {/* HERO SECTION - Brighter image, no blue box, text with shadow */}
+      {/* HERO SECTION - Brighter image, no blue box */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background Image - BRIGHTER */}
         <div className="absolute inset-0">
           <img 
             src="/hero-background.jpg" 
             alt="Cycling in Colombia" 
-            className="w-full h-full object-cover brightness-110"
+            className="w-full h-full object-cover"
+            style={{ filter: 'brightness(1.1)' }}
           />
-          {/* LIGHTER gradient for better image visibility */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/40" />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.3), transparent, rgba(0,0,0,0.4))' }} />
         </div>
 
-        {/* Content - Right Side - NO BLUE BOX */}
         <div className="relative z-10 container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="hidden md:block"></div>
             
-            {/* Text Content - Just text with shadows, no background box */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               className="text-right"
+              style={{ filter: 'drop-shadow(0 4px 20px rgba(0,0,0,0.5))' }}
             >
-              <p className="text-[#F2C94C] text-sm md:text-base font-semibold tracking-wide uppercase mb-3 drop-shadow-lg">
+              <p className="text-sm md:text-base font-semibold tracking-wide uppercase mb-3" style={{ color: '#F2C94C' }}>
                 Founded by Cycle Logic
               </p>
               
-              <h1 className="font-heading text-4xl md:text-5xl lg:text-7xl text-white font-bold mb-6 leading-tight drop-shadow-2xl">
+              <h1 className="font-heading text-4xl md:text-5xl lg:text-7xl text-white font-bold mb-6 leading-tight">
                 Colombia's Ultimate
                 <br />
-                <span className="text-[#F2C94C]">Cycling Experience</span>
+                <span style={{ color: '#F2C94C' }}>Cycling Experience</span>
               </h1>
               
-              <p className="text-white text-lg md:text-xl mb-8 leading-relaxed drop-shadow-xl">
+              <p className="text-white text-lg md:text-xl mb-8 leading-relaxed">
                 Legendary Andes climbs • Authentic culture • 
                 Exceptional food • Mountain retreat accommodation
               </p>
@@ -61,26 +69,32 @@ const Index = () => {
                 <Button 
                   onClick={handleBookingClick}
                   size="lg" 
-                  className="bg-[#F2C94C] hover:bg-[#E5BC3F] text-[#3D5467] text-lg px-8 py-6 font-semibold shadow-2xl border-0"
-                  style={{ borderRadius: '2px' }}
+                  className="text-lg px-8 py-6 font-semibold shadow-2xl border-0"
+                  style={{ 
+                    backgroundColor: '#F2C94C', 
+                    color: '#3D5467',
+                    borderRadius: '2px'
+                  }}
                 >
                   View Tour Dates
                 </Button>
                 <Button 
-                  onClick={() => {
-                    navigate('/contact');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
+                  onClick={handleContactClick}
                   variant="outline" 
                   size="lg" 
-                  className="bg-white/90 border-white text-[#3D5467] hover:bg-white text-lg px-8 py-6 font-semibold shadow-2xl"
-                  style={{ borderRadius: '2px' }}
+                  className="text-lg px-8 py-6 font-semibold shadow-2xl"
+                  style={{ 
+                    backgroundColor: 'rgba(255,255,255,0.9)',
+                    borderColor: 'white',
+                    color: '#3D5467',
+                    borderRadius: '2px'
+                  }}
                 >
                   Get In Touch
                 </Button>
               </div>
 
-              <div className="flex flex-wrap gap-4 text-white text-sm justify-end drop-shadow-lg">
+              <div className="flex flex-wrap gap-4 text-white text-sm justify-end">
                 <span>11 Days</span>
                 <span>•</span>
                 <span>$5,600 CAD</span>
@@ -92,7 +106,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* YOUR MOUNTAIN RETREAT - Sharp corners, new colors */}
+      {/* YOUR MOUNTAIN RETREAT */}
       <section className="py-24 md:py-32 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -103,16 +117,15 @@ const Index = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4 text-[#3D5467]">
+              <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4" style={{ color: '#3D5467' }}>
                 Your Mountain Retreat
               </h2>
-              <p className="text-lg text-[#6B7280] max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: '#6B7280' }}>
                 Where you'll return after epic rides to rest, recover, and share stories
               </p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Property Photo - NO ROUNDED CORNERS */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -127,7 +140,6 @@ const Index = () => {
                 />
               </motion.div>
               
-              {/* Description */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -135,26 +147,28 @@ const Index = () => {
                 viewport={{ once: true }}
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <HomeIcon className="h-8 w-8 text-[#8B6F47]" />
-                  <h3 className="font-heading text-2xl md:text-3xl font-semibold text-[#3D5467]">Surrounded by Nature</h3>
+                  <HomeIcon className="h-8 w-8" style={{ color: '#8B6F47' }} />
+                  <h3 className="font-heading text-2xl md:text-3xl font-semibold" style={{ color: '#3D5467' }}>
+                    Surrounded by Nature
+                  </h3>
                 </div>
-                <p className="text-lg text-[#4B5563] mb-6 leading-relaxed">
+                <p className="text-lg mb-6 leading-relaxed" style={{ color: '#4B5563' }}>
                   Nestled in the mountains outside Medellín, surrounded by coffee plantations and pine forests. 
                   This peaceful retreat is where you'll recover after challenging rides, watch sunsets over the Andes, 
                   and build friendships with fellow riders.
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-[#8B6F47] flex-shrink-0 mt-1" />
-                    <span className="text-[#4B5563]">Stunning mountain views from your room</span>
+                    <Check className="h-5 w-5 flex-shrink-0 mt-1" style={{ color: '#8B6F47' }} />
+                    <span style={{ color: '#4B5563' }}>Stunning mountain views from your room</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-[#8B6F47] flex-shrink-0 mt-1" />
-                    <span className="text-[#4B5563]">Fresh mountain air and peaceful surroundings</span>
+                    <Check className="h-5 w-5 flex-shrink-0 mt-1" style={{ color: '#8B6F47' }} />
+                    <span style={{ color: '#4B5563' }}>Fresh mountain air and peaceful surroundings</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-[#8B6F47] flex-shrink-0 mt-1" />
-                    <span className="text-[#4B5563]">Perfect base for exploring the coffee region</span>
+                    <Check className="h-5 w-5 flex-shrink-0 mt-1" style={{ color: '#8B6F47' }} />
+                    <span style={{ color: '#4B5563' }}>Perfect base for exploring the coffee region</span>
                   </div>
                 </div>
               </motion.div>
@@ -163,8 +177,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* WHAT YOUR DAYS LOOK LIKE - STAGGERED WITH ROUTE MAP LINE */}
-      <section className="py-24 md:py-32 bg-[#F5F5F5] relative overflow-hidden">
+      {/* WHAT YOUR DAYS LOOK LIKE - STAGGERED */}
+      <section className="py-24 md:py-32 relative overflow-hidden" style={{ backgroundColor: '#F5F5F5' }}>
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -173,21 +187,25 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-20"
           >
-            <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4 text-[#3D5467]">
+            <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4" style={{ color: '#3D5467' }}>
               What Your Days Look Like
             </h2>
-            <p className="text-lg text-[#6B7280] max-w-2xl mx-auto">
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: '#6B7280' }}>
               Every day balances world-class riding with authentic cultural immersion
             </p>
           </motion.div>
 
           <div className="max-w-4xl mx-auto relative">
-            {/* Dotted connecting line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 border-l-2 border-dashed border-[#8B6F47]/30 hidden md:block" 
-                 style={{ transform: 'translateX(-50%)' }}
+            {/* Dotted line */}
+            <div 
+              className="absolute left-1/2 top-0 bottom-0 w-0.5 hidden md:block" 
+              style={{ 
+                borderLeft: '2px dashed rgba(139, 111, 71, 0.3)',
+                transform: 'translateX(-50%)'
+              }}
             />
 
-            {/* Card 1: The Riding - LEFT with Route Chart */}
+            {/* Card 1: The Riding - LEFT */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -196,34 +214,43 @@ const Index = () => {
               className="mb-20 md:mb-32 relative"
             >
               <div className="md:grid md:grid-cols-2 md:gap-12 items-center">
-                <div className="bg-white p-8 shadow-lg relative z-10 border-l-4 border-[#8B6F47]">
-                  <Mountain className="h-12 w-12 text-[#8B6F47] mb-6" />
-                  <h3 className="font-heading text-2xl font-semibold mb-4 text-[#3D5467]">The Riding</h3>
-                  <p className="text-[#4B5563] leading-relaxed mb-4">
+                <div className="bg-white p-8 shadow-lg relative z-10" style={{ borderLeft: '4px solid #8B6F47' }}>
+                  <Mountain className="h-12 w-12 mb-6" style={{ color: '#8B6F47' }} />
+                  <h3 className="font-heading text-2xl font-semibold mb-4" style={{ color: '#3D5467' }}>
+                    The Riding
+                  </h3>
+                  <p className="leading-relaxed mb-4" style={{ color: '#4B5563' }}>
                     60-100km daily with 1,000-2,000m of climbing through the Andes and coffee country. 
                     Roads where pro teams train—challenging, stunning, fully supported.
                   </p>
-                  <p className="text-sm text-[#6B7280] italic">
+                  <p className="text-sm italic" style={{ color: '#6B7280' }}>
                     Intermediate to advanced. Road or gravel bikes. Full vehicle support.
                   </p>
                 </div>
-                {/* Route elevation chart */}
                 <div className="mt-8 md:mt-0">
                   <img 
                     src="/route-chart.png" 
                     alt="Route elevation profile" 
                     className="w-full h-auto shadow-md"
                   />
-                  <p className="text-xs text-[#6B7280] mt-2 text-center italic">Sample route profile showing climbs and descents</p>
+                  <p className="text-xs mt-2 text-center italic" style={{ color: '#6B7280' }}>
+                    Sample route profile showing climbs and descents
+                  </p>
                 </div>
               </div>
-              {/* Connection dot */}
-              <div className="hidden md:block absolute right-0 top-1/2 w-4 h-4 bg-[#8B6F47] rounded-full" 
-                   style={{ transform: 'translate(50%, -50%)', left: '50%' }}
+              <div 
+                className="hidden md:block absolute w-4 h-4 rounded-full" 
+                style={{ 
+                  backgroundColor: '#8B6F47',
+                  right: '0',
+                  top: '50%',
+                  transform: 'translate(50%, -50%)',
+                  left: '50%'
+                }}
               />
             </motion.div>
 
-            {/* Card 2: The Culture - RIGHT */}
+            {/* Card 2: Culture - RIGHT */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -233,25 +260,32 @@ const Index = () => {
             >
               <div className="md:grid md:grid-cols-2 md:gap-12 items-center">
                 <div className="order-2 md:order-1"></div>
-                <div className="bg-white p-8 shadow-lg relative z-10 order-1 md:order-2 border-r-4 border-[#8B6F47]">
-                  <Coffee className="h-12 w-12 text-[#8B6F47] mb-6" />
-                  <h3 className="font-heading text-2xl font-semibold mb-4 text-[#3D5467]">The Culture</h3>
-                  <p className="text-[#4B5563] leading-relaxed mb-4">
+                <div className="bg-white p-8 shadow-lg relative z-10 order-1 md:order-2" style={{ borderRight: '4px solid #8B6F47' }}>
+                  <Coffee className="h-12 w-12 mb-6" style={{ color: '#8B6F47' }} />
+                  <h3 className="font-heading text-2xl font-semibold mb-4" style={{ color: '#3D5467' }}>
+                    The Culture
+                  </h3>
+                  <p className="leading-relaxed mb-4" style={{ color: '#4B5563' }}>
                     Coffee farm visits with families who've been growing for generations. Market explorations. 
                     Traditional meals in home kitchens. You're not observing—you're participating.
                   </p>
-                  <p className="text-sm text-[#6B7280] italic">
+                  <p className="text-sm italic" style={{ color: '#6B7280' }}>
                     Our guides introduce you as friends. The connections last beyond the tour.
                   </p>
                 </div>
               </div>
-              {/* Connection dot */}
-              <div className="hidden md:block absolute left-1/2 top-1/2 w-4 h-4 bg-[#8B6F47] rounded-full" 
-                   style={{ transform: 'translate(-50%, -50%)' }}
+              <div 
+                className="hidden md:block absolute w-4 h-4 rounded-full" 
+                style={{ 
+                  backgroundColor: '#8B6F47',
+                  left: '50%',
+                  top: '50%',
+                  transform: 'translate(-50%, -50%)'
+                }}
               />
             </motion.div>
 
-            {/* Card 3: The Food - LEFT */}
+            {/* Card 3: Food - LEFT */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -260,30 +294,38 @@ const Index = () => {
               className="relative"
             >
               <div className="md:grid md:grid-cols-2 md:gap-12 items-center">
-                <div className="bg-white p-8 shadow-lg relative z-10 border-l-4 border-[#8B6F47]">
-                  <Users className="h-12 w-12 text-[#8B6F47] mb-6" />
-                  <h3 className="font-heading text-2xl font-semibold mb-4 text-[#3D5467]">The Food</h3>
-                  <p className="text-[#4B5563] leading-relaxed mb-4">
+                <div className="bg-white p-8 shadow-lg relative z-10" style={{ borderLeft: '4px solid #8B6F47' }}>
+                  <Users className="h-12 w-12 mb-6" style={{ color: '#8B6F47' }} />
+                  <h3 className="font-heading text-2xl font-semibold mb-4" style={{ color: '#3D5467' }}>
+                    The Food
+                  </h3>
+                  <p className="leading-relaxed mb-4" style={{ color: '#4B5563' }}>
                     Bandeja paisa after hard rides. Fresh trout from mountain streams. Colombian coffee that 
                     redefines what you thought you knew. Every meal connects you deeper to the region.
                   </p>
-                  <p className="text-sm text-[#6B7280] italic">
+                  <p className="text-sm italic" style={{ color: '#6B7280' }}>
                     Maximum 12 riders means genuine connections form fast. Solo travelers welcome.
                   </p>
                 </div>
                 <div></div>
               </div>
-              {/* Connection dot */}
-              <div className="hidden md:block absolute right-0 top-1/2 w-4 h-4 bg-[#8B6F47] rounded-full" 
-                   style={{ transform: 'translate(50%, -50%)', left: '50%' }}
+              <div 
+                className="hidden md:block absolute w-4 h-4 rounded-full" 
+                style={{ 
+                  backgroundColor: '#8B6F47',
+                  right: '0',
+                  top: '50%',
+                  transform: 'translate(50%, -50%)',
+                  left: '50%'
+                }}
               />
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA - New color scheme */}
-      <section className="py-24 md:py-32 bg-[#3D5467] text-white">
+      {/* FINAL CTA */}
+      <section className="py-24 md:py-32 text-white" style={{ backgroundColor: '#3D5467' }}>
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -295,7 +337,7 @@ const Index = () => {
             <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6">
               Ready to Experience Colombia?
             </h2>
-            <p className="text-xl text-white/90 mb-10 leading-relaxed">
+            <p className="text-xl mb-10 leading-relaxed" style={{ color: 'rgba(255,255,255,0.9)' }}>
               Three departures in January-February 2025. Limited to 12 riders per tour. 
               $5,600 CAD includes accommodation, all meals, and guided tours.
             </p>
@@ -303,37 +345,44 @@ const Index = () => {
               <Button 
                 onClick={handleBookingClick}
                 size="lg" 
-                className="bg-[#F2C94C] hover:bg-[#E5BC3F] text-[#3D5467] text-lg px-10 py-6 font-semibold shadow-xl"
-                style={{ borderRadius: '2px' }}
+                className="text-lg px-10 py-6 font-semibold shadow-xl"
+                style={{ 
+                  backgroundColor: '#F2C94C',
+                  color: '#3D5467',
+                  borderRadius: '2px'
+                }}
               >
                 View Dates & Book Your Spot
               </Button>
               <Button 
-                onClick={() => {
-                  navigate('/gallery');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
+                onClick={handleGalleryClick}
                 variant="outline" 
                 size="lg" 
-                className="bg-transparent border-2 border-white text-white hover:bg-white/10 text-lg px-10 py-6 font-semibold"
-                style={{ borderRadius: '2px' }}
+                className="text-lg px-10 py-6 font-semibold"
+                style={{ 
+                  backgroundColor: 'transparent',
+                  borderColor: 'white',
+                  borderWidth: '2px',
+                  color: 'white',
+                  borderRadius: '2px'
+                }}
               >
                 See Photo Gallery
               </Button>
             </div>
 
-            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto border-t border-white/20 pt-12">
+            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto pt-12" style={{ borderTop: '1px solid rgba(255,255,255,0.2)' }}>
               <div>
-                <div className="text-4xl font-bold text-[#F2C94C] mb-2">200+</div>
-                <div className="text-sm text-white/70">Happy Riders</div>
+                <div className="text-4xl font-bold mb-2" style={{ color: '#F2C94C' }}>200+</div>
+                <div className="text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>Happy Riders</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-[#F2C94C] mb-2">4.9/5</div>
-                <div className="text-sm text-white/70">Average Rating</div>
+                <div className="text-4xl font-bold mb-2" style={{ color: '#F2C94C' }}>4.9/5</div>
+                <div className="text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>Average Rating</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-[#F2C94C] mb-2">11</div>
-                <div className="text-sm text-white/70">Day Adventure</div>
+                <div className="text-4xl font-bold mb-2" style={{ color: '#F2C94C' }}>11</div>
+                <div className="text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>Day Adventure</div>
               </div>
             </div>
           </motion.div>
