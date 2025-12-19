@@ -9,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 const Gallery = () => {
   const navigate = useNavigate();
 
+  // FIXED: Scroll to top function
   const handleBookingClick = () => {
     navigate('/booking');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -47,7 +48,7 @@ const Gallery = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative py-16 bg-gradient-to-b from-slate-800 to-slate-900">
+      <section className="relative py-16 bg-gradient-to-b from-[#134686] to-[#0d3460]">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -75,7 +76,7 @@ const Gallery = () => {
                 <TabsTrigger
                   key={category.id}
                   value={category.id}
-                  className="px-6 py-3 data-[state=active]:bg-amber-500 data-[state=active]:text-white"
+                  className="px-6 py-3 data-[state=active]:bg-[#ED3F27] data-[state=active]:text-white rounded-none"
                 >
                   {category.name}
                 </TabsTrigger>
@@ -99,14 +100,12 @@ const Gallery = () => {
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.4, delay: index * 0.05 }}
                       viewport={{ once: true }}
-                      className="group relative aspect-[4/3] bg-slate-100 rounded-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
+                      className="group relative aspect-[4/3] bg-slate-100 overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
                     >
-                      {/* Placeholder gradient */}
                       <div className="absolute inset-0 bg-gradient-to-br from-slate-300 to-slate-200 flex items-center justify-center">
                         <span className="text-6xl opacity-20">🚴</span>
                       </div>
                       
-                      {/* Caption Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity">
                         <div className="absolute bottom-0 left-0 right-0 p-4">
                           <p className="text-white text-sm font-medium">{caption}</p>
@@ -127,11 +126,11 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* CTA - FIXED: Now scrolls to top of booking page */}
-      <section className="py-16 md:py-20 bg-slate-50">
+      {/* CTA - FIXED: Scrolls to top of booking page */}
+      <section className="py-16 md:py-20 bg-[#FDF4E3]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-[#134686]">
               Ready to Create Your Own Story?
             </h2>
             <p className="text-lg text-slate-700 mb-8">
@@ -142,13 +141,14 @@ const Gallery = () => {
               <Button 
                 onClick={handleBookingClick}
                 size="lg"
-                className="bg-amber-500 hover:bg-amber-600 text-white"
+                className="bg-[#ED3F27] hover:bg-[#d63620] text-white rounded-none"
               >
                 View Tour Dates
               </Button>
               <Button 
                 variant="outline" 
                 size="lg"
+                className="border-2 border-[#134686] text-[#134686] hover:bg-[#134686] hover:text-white rounded-none"
               >
                 Join Our Newsletter
               </Button>

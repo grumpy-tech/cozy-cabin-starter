@@ -13,29 +13,30 @@ const Index = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleGalleryClick = () => {
+    navigate('/gallery');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <main className="min-h-screen">
       <Navbar />
       
-      {/* HERO SECTION - Brighter image, no background box */}
+      {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background Image - BRIGHTENED */}
         <div className="absolute inset-0">
           <img 
             src="/hero-background.jpg" 
             alt="Cycling in Colombia" 
             className="w-full h-full object-cover brightness-110"
           />
-          {/* LIGHTER overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/40" />
         </div>
 
-        {/* Content - RIGHT SIDE, NO BACKGROUND BOX */}
         <div className="relative z-10 container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="hidden md:block"></div>
             
-            {/* Text - NO BACKGROUND, just text shadow */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -43,14 +44,14 @@ const Index = () => {
               className="p-8 md:p-12"
               style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}
             >
-              <p className="text-[#F2C94C] text-sm md:text-base font-semibold tracking-wide uppercase mb-3">
+              <p className="text-[#FEB21A] text-sm md:text-base font-semibold tracking-wide uppercase mb-3">
                 Founded by Cycle Logic
               </p>
               
               <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl text-white font-bold mb-6 leading-tight">
                 Colombia's Ultimate
                 <br />
-                <span className="text-[#F2C94C]">Cycling Experience</span>
+                <span className="text-[#FEB21A]">Cycling Experience</span>
               </h1>
               
               <p className="text-white text-lg md:text-xl mb-8 leading-relaxed">
@@ -62,7 +63,7 @@ const Index = () => {
                 <Button 
                   onClick={handleBookingClick}
                   size="lg" 
-                  className="bg-[#8B6F47] hover:bg-[#6d5538] text-white text-lg px-8 py-6 rounded-none border-0"
+                  className="bg-[#ED3F27] hover:bg-[#d63620] text-white text-lg px-8 py-6 rounded-none border-0"
                 >
                   View Tour Dates
                 </Button>
@@ -73,7 +74,7 @@ const Index = () => {
                   }}
                   variant="outline" 
                   size="lg" 
-                  className="bg-white/10 border-2 border-white text-white hover:bg-white hover:text-[#3D5467] text-lg px-8 py-6 rounded-none"
+                  className="bg-white/10 border-2 border-white text-white hover:bg-white hover:text-[#134686] text-lg px-8 py-6 rounded-none"
                 >
                   Get In Touch
                 </Button>
@@ -102,7 +103,7 @@ const Index = () => {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4 text-[#3D5467]">
+              <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4 text-[#134686]">
                 Your Mountain Retreat
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -132,8 +133,8 @@ const Index = () => {
                 viewport={{ once: true }}
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <HomeIcon className="h-8 w-8 text-[#8B6F47]" />
-                  <h3 className="font-heading text-2xl md:text-3xl font-semibold text-[#3D5467]">
+                  <HomeIcon className="h-8 w-8 text-[#ED3F27]" />
+                  <h3 className="font-heading text-2xl md:text-3xl font-semibold text-[#134686]">
                     Surrounded by Nature
                   </h3>
                 </div>
@@ -149,7 +150,7 @@ const Index = () => {
                     "Perfect base for exploring the coffee region"
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[#8B6F47] flex-shrink-0 mt-1" />
+                      <Check className="h-5 w-5 text-[#ED3F27] flex-shrink-0 mt-1" />
                       <span className="text-slate-700">{item}</span>
                     </div>
                   ))}
@@ -160,8 +161,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* STAGGERED TIMELINE - What Your Days Look Like */}
-      <section className="py-16 md:py-24 bg-[#f8f7f5]">
+      {/* STAGGERED TIMELINE */}
+      <section className="py-16 md:py-24 bg-[#FDF4E3]">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -170,7 +171,7 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4 text-[#3D5467]">
+            <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4 text-[#134686]">
               What Your Days Look Like
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -178,12 +179,12 @@ const Index = () => {
             </p>
           </motion.div>
 
-          <div className="max-w-5xl mx-auto relative">
+          <div className="max-w-6xl mx-auto relative">
             {/* Vertical dotted line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 border-l-2 border-dashed border-[#8B6F47] hidden md:block" 
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 border-l-2 border-dashed border-[#ED3F27] hidden md:block" 
                  style={{ transform: 'translateX(-50%)' }} />
 
-            {/* THE RIDING - LEFT with elevation chart */}
+            {/* THE RIDING - LEFT with elevation chart AND cycling photo on right */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -192,38 +193,34 @@ const Index = () => {
               className="mb-16 md:mb-24 grid md:grid-cols-2 gap-8 items-center"
             >
               <div className="bg-white p-8 shadow-md border border-slate-200 relative">
-                <div className="absolute -right-4 top-1/2 w-8 h-8 bg-[#8B6F47] border-4 border-[#f8f7f5] hidden md:block rounded-full"
+                <div className="absolute -right-4 top-1/2 w-8 h-8 bg-[#ED3F27] border-4 border-[#FDF4E3] hidden md:block rounded-full keep-round"
                      style={{ transform: 'translateY(-50%)' }} />
                 
-                <h3 className="font-heading text-2xl font-semibold mb-4 text-[#3D5467]">The Riding</h3>
+                <h3 className="font-heading text-2xl font-semibold mb-4 text-[#134686]">The Riding</h3>
                 
-                {/* Simple elevation profile SVG */}
+                {/* Elevation profile SVG */}
                 <div className="bg-slate-50 p-4 mb-4">
                   <svg viewBox="0 0 500 180" className="w-full">
-                    {/* Grid lines */}
                     <line x1="0" y1="150" x2="500" y2="150" stroke="#e5e7eb" strokeWidth="1"/>
                     <line x1="0" y1="120" x2="500" y2="120" stroke="#e5e7eb" strokeWidth="1"/>
                     <line x1="0" y1="90" x2="500" y2="90" stroke="#e5e7eb" strokeWidth="1"/>
                     <line x1="0" y1="60" x2="500" y2="60" stroke="#e5e7eb" strokeWidth="1"/>
                     
-                    {/* Elevation profile path */}
                     <path 
                       d="M0,140 L50,135 L100,150 L150,125 L200,110 L250,90 L300,100 L350,85 L400,95 L450,105 L500,115" 
                       fill="none" 
-                      stroke="#8B6F47" 
+                      stroke="#ED3F27" 
                       strokeWidth="3"
                       strokeLinecap="round"
                     />
                     
-                    {/* Fill under line */}
                     <path 
                       d="M0,140 L50,135 L100,150 L150,125 L200,110 L250,90 L300,100 L350,85 L400,95 L450,105 L500,115 L500,150 L0,150 Z" 
-                      fill="#8B6F47" 
+                      fill="#ED3F27" 
                       opacity="0.1"
                     />
                     
-                    {/* Labels */}
-                    <text x="10" y="25" fill="#3D5467" fontSize="16" fontWeight="bold">Route Profile</text>
+                    <text x="10" y="25" fill="#134686" fontSize="16" fontWeight="bold">Route Profile</text>
                     <text x="10" y="175" fill="#666" fontSize="12">Distance (km)</text>
                     <text x="420" y="45" fill="#666" fontSize="11">Speed: 23.7 km/h</text>
                   </svg>
@@ -240,7 +237,21 @@ const Index = () => {
                   Intermediate to advanced. Full vehicle support follows every ride.
                 </p>
               </div>
-              <div className="hidden md:block"></div>
+              
+              {/* CYCLING PHOTO - Right side */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="h-[400px] overflow-hidden"
+              >
+                <img 
+                  src="/hero-cycling.jpg" 
+                  alt="Cycling on mountain roads" 
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
             </motion.div>
 
             {/* THE CULTURE - RIGHT */}
@@ -253,11 +264,11 @@ const Index = () => {
             >
               <div className="hidden md:block"></div>
               <div className="bg-white p-8 shadow-md border border-slate-200 relative">
-                <div className="absolute -left-4 top-1/2 w-8 h-8 bg-[#8B6F47] border-4 border-[#f8f7f5] hidden md:block rounded-full"
+                <div className="absolute -left-4 top-1/2 w-8 h-8 bg-[#ED3F27] border-4 border-[#FDF4E3] hidden md:block rounded-full keep-round"
                      style={{ transform: 'translateY(-50%)' }} />
                 
-                <Coffee className="h-12 w-12 text-[#8B6F47] mb-6" />
-                <h3 className="font-heading text-2xl font-semibold mb-4 text-[#3D5467]">The Culture</h3>
+                <Coffee className="h-12 w-12 text-[#ED3F27] mb-6" />
+                <h3 className="font-heading text-2xl font-semibold mb-4 text-[#134686]">The Culture</h3>
                 <p className="text-slate-700 leading-relaxed mb-4">
                   Coffee farm visits with families who've been growing for generations. Market explorations. 
                   Traditional meals in home kitchens. You're not observing—you're participating.
@@ -277,11 +288,11 @@ const Index = () => {
               className="grid md:grid-cols-2 gap-8 items-center"
             >
               <div className="bg-white p-8 shadow-md border border-slate-200 relative">
-                <div className="absolute -right-4 top-1/2 w-8 h-8 bg-[#8B6F47] border-4 border-[#f8f7f5] hidden md:block rounded-full"
+                <div className="absolute -right-4 top-1/2 w-8 h-8 bg-[#ED3F27] border-4 border-[#FDF4E3] hidden md:block rounded-full keep-round"
                      style={{ transform: 'translateY(-50%)' }} />
                 
-                <Users className="h-12 w-12 text-[#8B6F47] mb-6" />
-                <h3 className="font-heading text-2xl font-semibold mb-4 text-[#3D5467]">The Food</h3>
+                <Users className="h-12 w-12 text-[#ED3F27] mb-6" />
+                <h3 className="font-heading text-2xl font-semibold mb-4 text-[#134686]">The Food</h3>
                 <p className="text-slate-700 leading-relaxed mb-4">
                   Bandeja paisa after hard rides. Fresh trout from mountain streams. Colombian coffee that 
                   redefines what you thought you knew. Every meal connects you deeper to the region.
@@ -297,7 +308,7 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-24 bg-[#3D5467] text-white">
+      <section className="py-16 md:py-24 bg-[#134686] text-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -317,18 +328,15 @@ const Index = () => {
               <Button 
                 onClick={handleBookingClick}
                 size="lg" 
-                className="bg-[#8B6F47] hover:bg-[#6d5538] text-white text-lg px-8 py-6 rounded-none"
+                className="bg-[#ED3F27] hover:bg-[#d63620] text-white text-lg px-8 py-6 rounded-none"
               >
                 View Dates & Book Your Spot
               </Button>
               <Button 
-                onClick={() => {
-                  navigate('/gallery');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
+                onClick={handleGalleryClick}
                 variant="outline" 
                 size="lg" 
-                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#3D5467] text-lg px-8 py-6 rounded-none"
+                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#134686] text-lg px-8 py-6 rounded-none"
               >
                 See Photo Gallery
               </Button>
@@ -340,8 +348,8 @@ const Index = () => {
                 { num: "4.9/5", label: "Average Rating" },
                 { num: "11", label: "Day Adventure" }
               ].map((stat, i) => (
-                <div key={i} className="border-t-2 border-[#8B6F47] pt-4">
-                  <div className="text-3xl font-bold text-[#F2C94C] mb-1">{stat.num}</div>
+                <div key={i} className="border-t-2 border-[#ED3F27] pt-4">
+                  <div className="text-3xl font-bold text-[#FEB21A] mb-1">{stat.num}</div>
                   <div className="text-sm text-white/70">{stat.label}</div>
                 </div>
               ))}
