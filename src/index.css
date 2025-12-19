@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,73 +6,73 @@
 
 @layer base {
   :root {
-    /* NEW Color Palette: #EADFB4, #9BB0C1, #51829B, #F6995C */
+    /* NEW Color Palette: #F4F6FF, #F3C623, #EB8317, #10375C */
     --background: 0 0% 100%;
-    --foreground: 210 20% 20%;
+    --foreground: 210 70% 15%;
 
     --card: 0 0% 98%;
-    --card-foreground: 210 20% 20%;
+    --card-foreground: 210 70% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 20% 20%;
+    --popover-foreground: 210 70% 15%;
 
-    /* Primary: Dark Blue #51829B */
-    --primary: 199 32% 46%;
-    --primary-foreground: 0 0% 98%;
+    /* Primary: Navy #10375C */
+    --primary: 209 70% 21%;
+    --primary-foreground: 240 100% 99%;
 
-    /* Secondary: Medium Blue #9BB0C1 */
-    --secondary: 206 27% 67%;
-    --secondary-foreground: 210 20% 20%;
+    /* Secondary: Light Blue/White #F4F6FF */
+    --secondary: 240 100% 98%;
+    --secondary-foreground: 209 70% 21%;
 
-    /* Muted: Cream #EADFB4 */
-    --muted: 47 45% 81%;
+    /* Accent Yellow: #F3C623 */
+    --accent: 45 89% 55%;
+    --accent-foreground: 209 70% 21%;
+
+    /* Muted */
+    --muted: 240 20% 96%;
     --muted-foreground: 210 10% 45%;
-
-    /* Accent: Orange #F6995C */
-    --accent: 25 90% 67%;
-    --accent-foreground: 210 20% 20%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 206 15% 85%;
-    --input: 206 15% 85%;
-    --ring: 199 32% 46%;
+    --border: 240 15% 90%;
+    --input: 240 15% 90%;
+    --ring: 209 70% 21%;
 
     /* NO BORDER RADIUS */
     --radius: 0rem;
 
-    /* New color variables */
-    --cream: 47 45% 81%;        /* #EADFB4 */
-    --medium-blue: 206 27% 67%; /* #9BB0C1 */
-    --dark-blue: 199 32% 46%;   /* #51829B */
-    --orange: 25 90% 67%;       /* #F6995C */
+    /* Color variables */
+    --light-blue: 240 100% 98%;    /* #F4F6FF */
+    --yellow: 45 89% 55%;          /* #F3C623 */
+    --orange: 22 84% 51%;          /* #EB8317 */
+    --navy: 209 70% 21%;           /* #10375C */
 
     /* Shadows */
-    --shadow-soft: 0 2px 15px rgba(81, 130, 155, 0.08);
-    --shadow-elevated: 0 4px 25px rgba(81, 130, 155, 0.12);
+    --shadow-soft: 0 2px 15px rgba(16, 55, 92, 0.08);
+    --shadow-elevated: 0 4px 25px rgba(16, 55, 92, 0.12);
   }
 
   .dark {
-    --background: 199 32% 10%;
+    --background: 209 70% 10%;
     --foreground: 0 0% 95%;
-    --card: 199 32% 12%;
+    --card: 209 70% 12%;
     --card-foreground: 0 0% 95%;
-    --popover: 199 32% 10%;
+    --popover: 209 70% 10%;
     --popover-foreground: 0 0% 95%;
-    --primary: 199 32% 46%;
-    --primary-foreground: 199 32% 10%;
-    --secondary: 206 27% 35%;
+    --primary: 209 70% 21%;
+    --primary-foreground: 240 100% 99%;
+    --secondary: 240 20% 25%;
     --secondary-foreground: 0 0% 95%;
-    --muted: 199 15% 20%;
-    --muted-foreground: 199 20% 65%;
-    --accent: 25 90% 67%;
-    --accent-foreground: 199 32% 10%;
+    --muted: 209 15% 20%;
+    --muted-foreground: 209 20% 65%;
+    --accent: 45 89% 55%;
+    --accent-foreground: 209 70% 10%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 199 40% 98%;
-    --border: 199 15% 20%;
-    --input: 199 15% 20%;
-    --ring: 199 32% 46%;
+    --destructive-foreground: 209 40% 98%;
+    --border: 209 15% 20%;
+    --input: 209 15% 20%;
+    --ring: 209 70% 21%;
   }
 }
 
@@ -87,13 +87,13 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
     font-weight: 600;
     letter-spacing: -0.02em;
   }
@@ -111,11 +111,11 @@
 
 @layer utilities {
   .font-heading {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
   }
 
   .font-body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Inter', -apple-system, sans-serif;
   }
 
   .text-balance {
@@ -127,23 +127,48 @@
   }
 
   .shadow-matte {
-    box-shadow: 0 2px 15px rgba(81, 130, 155, 0.08);
+    box-shadow: 0 2px 15px rgba(16, 55, 92, 0.08);
   }
 
-  /* Professional Textures */
+  /* GRAINY GRADIENT TEXTURE - from uploaded image */
+  .texture-gradient {
+    position: relative;
+  }
+
+  .texture-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/texture-gradient.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .texture-gradient > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Subtle textures for variety */
   .texture-subtle {
     background-image: 
       repeating-linear-gradient(
         45deg,
         transparent,
         transparent 10px,
-        rgba(81, 130, 155, 0.02) 10px,
-        rgba(81, 130, 155, 0.02) 20px
+        rgba(16, 55, 92, 0.02) 10px,
+        rgba(16, 55, 92, 0.02) 20px
       );
   }
 
   .texture-dots {
-    background-image: radial-gradient(circle, rgba(81, 130, 155, 0.05) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(16, 55, 92, 0.04) 1px, transparent 1px);
     background-size: 20px 20px;
   }
 
@@ -152,15 +177,15 @@
       0deg,
       transparent,
       transparent 2px,
-      rgba(81, 130, 155, 0.03) 2px,
-      rgba(81, 130, 155, 0.03) 4px
+      rgba(16, 55, 92, 0.03) 2px,
+      rgba(16, 55, 92, 0.03) 4px
     );
   }
 
   .texture-grid {
     background-image: 
-      linear-gradient(rgba(81, 130, 155, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(81, 130, 155, 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(16, 55, 92, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(16, 55, 92, 0.03) 1px, transparent 1px);
     background-size: 30px 30px;
   }
 }
