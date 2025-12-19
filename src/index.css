@@ -6,86 +6,71 @@
 
 @layer base {
   :root {
-    /* Cycle Logic Colombia Tours - Adventure & Culture */
+    /* Cycle Logic Colombia Tours - Colombian Earth Tones */
     --background: 0 0% 100%;
-    --foreground: 210 15% 20%;
+    --foreground: 210 25% 30%;
 
     --card: 0 0% 98%;
-    --card-foreground: 210 15% 20%;
+    --card-foreground: 210 25% 30%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 15% 20%;
+    --popover-foreground: 210 25% 30%;
 
-    /* Deep Andean Slate - primary */
-    --primary: 210 25% 30%;
+    /* Andean Slate - primary #3D5467 */
+    --primary: 210 25% 32%;
     --primary-foreground: 0 0% 98%;
 
-    /* Warm Earth - secondary */
-    --secondary: 30 20% 92%;
-    --secondary-foreground: 210 15% 20%;
+    /* Earth Brown - secondary #8B6F47 */
+    --secondary: 30 32% 41%;
+    --secondary-foreground: 0 0% 98%;
 
     /* Soft neutral muted */
-    --muted: 210 10% 95%;
+    --muted: 40 10% 97%;
     --muted-foreground: 210 10% 45%;
 
-    /* Colombian Yellow accent (subtle) */
-    --accent: 45 90% 55%;
-    --accent-foreground: 210 15% 20%;
+    /* Sunrise Yellow accent #F2C94C */
+    --accent: 45 85% 62%;
+    --accent-foreground: 210 25% 30%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 210 15% 88%;
     --input: 210 15% 88%;
-    --ring: 210 25% 30%;
+    --ring: 210 25% 32%;
 
-    --radius: 0.5rem;
+    /* NO BORDER RADIUS - Sharp, professional edges */
+    --radius: 0rem;
 
-    /* Custom cycling tour colors */
-    --cycling-slate: 210 25% 30%;
-    --cycling-slate-light: 210 20% 45%;
-    --cycling-earth: 25 35% 55%;
-    --cycling-yellow: 45 90% 55%;
-    --cycling-red: 0 75% 55%;
-    --cycling-blue: 210 70% 50%;
-    --cycling-green: 140 40% 45%;
-    --cycling-coffee: 25 45% 40%;
+    /* Colombian color palette */
+    --andean-slate: 210 25% 32%;
+    --earth-brown: 30 32% 41%;
+    --sunrise-yellow: 45 85% 62%;
+    --coffee-red: 0 50% 52%;
+    --sky-blue: 210 70% 50%;
 
-    /* Gradients */
-    --gradient-hero: linear-gradient(180deg, transparent 0%, hsl(210 15% 20% / 0.75) 100%);
-    --gradient-andes: linear-gradient(135deg, hsl(var(--cycling-slate)) 0%, hsl(var(--cycling-blue)) 100%);
-
-    /* Shadows */
-    --shadow-soft: 0 4px 20px hsl(210 15% 20% / 0.08);
-    --shadow-elevated: 0 8px 40px hsl(210 15% 20% / 0.12);
-    --shadow-glow: 0 0 40px hsl(var(--cycling-yellow) / 0.3);
+    /* Shadows - Subtle matte finish */
+    --shadow-soft: 0 2px 15px rgba(61, 84, 103, 0.08);
+    --shadow-elevated: 0 4px 25px rgba(61, 84, 103, 0.12);
   }
 
   .dark {
-    --background: 210 20% 10%;
+    --background: 210 25% 10%;
     --foreground: 0 0% 95%;
-
-    --card: 210 20% 12%;
+    --card: 210 25% 12%;
     --card-foreground: 0 0% 95%;
-
-    --popover: 210 20% 10%;
+    --popover: 210 25% 10%;
     --popover-foreground: 0 0% 95%;
-
     --primary: 210 20% 45%;
-    --primary-foreground: 210 20% 10%;
-
-    --secondary: 210 15% 18%;
+    --primary-foreground: 210 25% 10%;
+    --secondary: 30 25% 25%;
     --secondary-foreground: 0 0% 95%;
-
     --muted: 210 15% 20%;
     --muted-foreground: 210 20% 65%;
-
-    --accent: 45 90% 55%;
-    --accent-foreground: 210 20% 10%;
-
+    --accent: 45 85% 62%;
+    --accent-foreground: 210 25% 10%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 210 15% 20%;
     --input: 210 15% 20%;
     --ring: 210 20% 45%;
@@ -104,11 +89,25 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Open Sans', sans-serif;
+    /* Matte finish */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  /* Remove all default border-radius */
+  button,
+  input,
+  textarea,
+  select,
+  .card,
+  img {
+    border-radius: 0 !important;
   }
 }
 
@@ -124,4 +123,29 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Sharp corners utility */
+  .sharp-corners {
+    border-radius: 0 !important;
+  }
+
+  /* Matte shadow */
+  .shadow-matte {
+    box-shadow: 0 2px 15px rgba(61, 84, 103, 0.08);
+  }
+}
+
+/* Override any rounded corners from components */
+.rounded-lg,
+.rounded-md,
+.rounded-sm,
+.rounded-xl,
+.rounded-2xl,
+.rounded-full {
+  border-radius: 0 !important;
+}
+
+/* Keep rounded-full only for dots/circles that need it */
+.rounded-full.keep-round {
+  border-radius: 9999px !important;
 }
