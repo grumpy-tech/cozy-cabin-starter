@@ -6,11 +6,11 @@ import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  { name: "Home", path: "/" },
-  { name: "Experience", path: "/experience" },
-  { name: "Gallery", path: "/gallery" },
-  { name: "Dates & Booking", path: "/booking" },
-  { name: "Contact", path: "/contact" },
+  { name: "home", path: "/" },
+  { name: "experience", path: "/experience" },
+  { name: "gallery", path: "/gallery" },
+  { name: "dates & booking", path: "/booking" },
+  { name: "contact", path: "/contact" },
 ];
 
 export function Navbar() {
@@ -40,11 +40,11 @@ export function Navbar() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        "bg-[#606C38]/95 backdrop-blur-md shadow-md",
-        isScrolled ? "py-2" : "py-3"
+        "bg-white/95 backdrop-blur-md",
+        isScrolled ? "shadow-md py-3" : "shadow-sm py-4"
       )}
     >
-      <nav className="container mx-auto px-4 flex items-center justify-between">
+      <nav className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <button 
           onClick={() => handleNavClick("/")}
@@ -53,21 +53,23 @@ export function Navbar() {
           <img 
             src="/logo.png" 
             alt="Cycle Logic" 
-            className="h-12 w-auto transition-transform group-hover:scale-105"
+            className="h-10 w-auto transition-transform group-hover:scale-105"
           />
         </button>
 
-        {/* Desktop Navigation */}
-        <ul className="hidden md:flex items-center gap-1">
+        {/* Desktop Navigation - Centered */}
+        <ul className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
           {navItems.map((item) => (
             <li key={item.name}>
               <button
                 onClick={() => handleNavClick(item.path)}
                 className={cn(
-                  "px-3 py-1.5 text-sm font-medium transition-all duration-300",
+                  "relative px-1 py-2 text-sm font-medium lowercase transition-all duration-300",
+                  "after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-[#DC4712] after:transition-all after:duration-300",
+                  "hover:after:w-full",
                   location.pathname === item.path
-                    ? "text-[#EE712B] bg-white/10"
-                    : "text-white hover:text-[#EE712B] hover:bg-white/10"
+                    ? "text-[#DC4712] after:w-full"
+                    : "text-slate-700 hover:text-[#DC4712]"
                 )}
               >
                 {item.name}
@@ -76,23 +78,24 @@ export function Navbar() {
           ))}
         </ul>
 
-        {/* Book Now Button */}
+        {/* Book Now Button - ElectraX style interactive */}
         <button onClick={() => handleNavClick("/booking")} className="hidden md:block">
-          <Button 
-            size="default"
-            className="bg-[#DC4712] hover:bg-[#c33e10] text-white transition-all duration-300 rounded-none px-6 py-2 h-9 font-medium"
-          >
-            Book Now
-          </Button>
+          <div className="group relative overflow-hidden bg-[#DC4712] px-6 py-2.5 transition-all duration-300 hover:bg-[#c33e10]">
+            <span className="relative z-10 text-sm font-semibold text-white lowercase">
+              book now
+            </span>
+            {/* Hover effect background */}
+            <div className="absolute inset-0 -translate-x-full bg-[#EE712B] transition-transform duration-300 group-hover:translate-x-0"></div>
+          </div>
         </button>
 
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 text-white hover:text-[#EE712B] transition-colors"
+          className="md:hidden p-2 text-slate-700 hover:text-[#DC4712] transition-colors"
           aria-label="Toggle menu"
         >
-          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </nav>
 
@@ -103,9 +106,9 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#606C38] border-t border-white/10"
+            className="md:hidden bg-white border-t border-slate-200"
           >
-            <ul className="container mx-auto px-4 py-3 space-y-1">
+            <ul className="container mx-auto px-6 py-4 space-y-2">
               {navItems.map((item, index) => (
                 <motion.li
                   key={item.name}
@@ -116,10 +119,10 @@ export function Navbar() {
                   <button
                     onClick={() => handleNavClick(item.path)}
                     className={cn(
-                      "block w-full text-left px-3 py-2 text-sm font-medium transition-colors",
+                      "block w-full text-left px-4 py-3 text-sm font-medium lowercase transition-colors",
                       location.pathname === item.path
-                        ? "bg-[#DC4712]/20 text-[#EE712B]"
-                        : "text-white hover:bg-white/10"
+                        ? "bg-[#FBF7F7] text-[#DC4712] border-l-4 border-[#DC4712]"
+                        : "text-slate-700 hover:bg-slate-50"
                     )}
                   >
                     {item.name}
@@ -133,9 +136,9 @@ export function Navbar() {
                 className="pt-2"
               >
                 <button onClick={() => handleNavClick("/booking")} className="w-full">
-                  <Button size="default" className="w-full bg-[#DC4712] hover:bg-[#c33e10] rounded-none h-9">
-                    Book Now
-                  </Button>
+                  <div className="bg-[#DC4712] hover:bg-[#c33e10] text-white text-sm font-semibold lowercase px-4 py-3 text-center transition-colors">
+                    book now
+                  </div>
                 </button>
               </motion.li>
             </ul>
