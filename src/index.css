@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* NEW Warm Earth-Tone Palette */
+    /* Warm Earth-Tone Palette */
     --background: 0 0% 100%;
     --foreground: 30 15% 25%;
 
@@ -93,10 +93,12 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* BOLD LOWERCASE HEADINGS - Like "Sightseeing" reference */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', 'Inter', sans-serif;
-    font-weight: 600;
+    font-family: 'Outfit', 'Inter', sans-serif;
+    font-weight: 800;
     letter-spacing: -0.02em;
+    text-transform: lowercase;
   }
 
   /* Remove border-radius */
@@ -112,7 +114,9 @@
 
 @layer utilities {
   .font-heading {
-    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-family: 'Outfit', 'Inter', sans-serif;
+    font-weight: 800;
+    text-transform: lowercase;
   }
 
   .font-body {
@@ -131,7 +135,7 @@
     box-shadow: 0 2px 15px rgba(220, 71, 18, 0.08);
   }
 
-  /* GRAINY TEXTURE - Using noise pattern with warm colors */
+  /* GRAINY TEXTURE - CSS noise with warm colors */
   .texture-grainy {
     position: relative;
     background: linear-gradient(135deg, #FBF7F7 0%, #F1E9E3 100%);
@@ -169,7 +173,7 @@
     z-index: 2;
   }
 
-  /* Alternative: CSS noise filter for authentic grain */
+  /* CSS noise filter for authentic grain */
   .texture-noise {
     position: relative;
     background: linear-gradient(135deg, #FBF7F7 0%, #F1E9E3 50%, #EE712B10 100%);
