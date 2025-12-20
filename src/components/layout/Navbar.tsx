@@ -33,19 +33,19 @@ export function Navbar() {
 
   const handleNavClick = (path: string) => {
     navigate(path);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' }), 0);
   };
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        "bg-[#10375C]/95 backdrop-blur-md shadow-md",
+        "bg-[#606C38]/95 backdrop-blur-md shadow-md",
         isScrolled ? "py-2" : "py-3"
       )}
     >
       <nav className="container mx-auto px-4 flex items-center justify-between">
-        {/* Logo - BIGGER (h-12 instead of h-8) */}
+        {/* Logo */}
         <button 
           onClick={() => handleNavClick("/")}
           className="flex items-center group cursor-pointer"
@@ -66,8 +66,8 @@ export function Navbar() {
                 className={cn(
                   "px-3 py-1.5 text-sm font-medium transition-all duration-300",
                   location.pathname === item.path
-                    ? "text-[#F3C623] bg-white/10"
-                    : "text-white hover:text-[#F3C623] hover:bg-white/10"
+                    ? "text-[#EE712B] bg-white/10"
+                    : "text-white hover:text-[#EE712B] hover:bg-white/10"
                 )}
               >
                 {item.name}
@@ -80,7 +80,7 @@ export function Navbar() {
         <button onClick={() => handleNavClick("/booking")} className="hidden md:block">
           <Button 
             size="default"
-            className="bg-[#EB8317] hover:bg-[#d67515] text-white transition-all duration-300 rounded-none px-6 py-2 h-9 font-medium"
+            className="bg-[#DC4712] hover:bg-[#c33e10] text-white transition-all duration-300 rounded-none px-6 py-2 h-9 font-medium"
           >
             Book Now
           </Button>
@@ -89,7 +89,7 @@ export function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 text-white hover:text-[#F3C623] transition-colors"
+          className="md:hidden p-2 text-white hover:text-[#EE712B] transition-colors"
           aria-label="Toggle menu"
         >
           {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -103,7 +103,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#10375C] border-t border-white/10"
+            className="md:hidden bg-[#606C38] border-t border-white/10"
           >
             <ul className="container mx-auto px-4 py-3 space-y-1">
               {navItems.map((item, index) => (
@@ -118,7 +118,7 @@ export function Navbar() {
                     className={cn(
                       "block w-full text-left px-3 py-2 text-sm font-medium transition-colors",
                       location.pathname === item.path
-                        ? "bg-[#EB8317]/20 text-[#F3C623]"
+                        ? "bg-[#DC4712]/20 text-[#EE712B]"
                         : "text-white hover:bg-white/10"
                     )}
                   >
@@ -133,7 +133,7 @@ export function Navbar() {
                 className="pt-2"
               >
                 <button onClick={() => handleNavClick("/booking")} className="w-full">
-                  <Button size="default" className="w-full bg-[#EB8317] hover:bg-[#d67515] rounded-none h-9">
+                  <Button size="default" className="w-full bg-[#DC4712] hover:bg-[#c33e10] rounded-none h-9">
                     Book Now
                   </Button>
                 </button>
