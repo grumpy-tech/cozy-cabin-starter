@@ -45,13 +45,13 @@ export function Navbar() {
       )}
     >
       <nav className="container mx-auto px-6 flex items-center justify-between">
-        {/* Logo Text - UPPERCASE */}
+        {/* Logo Text - "Pedal The World" */}
         <button 
           onClick={() => handleNavClick("/")}
           className="flex items-center group cursor-pointer"
         >
-          <h1 className="font-heading text-2xl md:text-3xl font-extrabold text-[#606C38] uppercase hover:text-[#DC4712] transition-colors duration-300">
-            PedalTheWorld
+          <h1 className="font-heading text-2xl md:text-3xl font-extrabold text-[#606C38] hover:text-[#DC4712] transition-colors duration-300">
+            Pedal <span className="text-[#DC4712]">The</span> World
           </h1>
         </button>
 

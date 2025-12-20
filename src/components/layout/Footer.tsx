@@ -32,8 +32,8 @@ export function Footer() {
         <div className="grid md:grid-cols-3 gap-12">
           {/* Logo & Tagline */}
           <div>
-            <h2 className="font-heading text-2xl font-extrabold text-[#606C38] mb-4 uppercase">
-              PedalTheWorld
+            <h2 className="font-heading text-2xl font-extrabold text-[#606C38] mb-4">
+              Pedal <span className="text-[#DC4712]">The</span> World
             </h2>
             <p className="text-sm text-slate-600 mb-3">
               Colombia's ultimate cycling experience
@@ -107,7 +107,7 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-slate-200">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-slate-500">
-              © {new Date().getFullYear()} PedalTheWorld. All rights reserved.
+              © {new Date().getFullYear()} Pedal The World. All rights reserved.
             </p>
             <p className="text-xs text-slate-400 italic">
               Founded by Cycle Logic
