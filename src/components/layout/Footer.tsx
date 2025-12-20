@@ -1,58 +1,54 @@
 import { useNavigate } from "react-router-dom";
-import { Bike, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
-const navLinks = [
-  { name: "Home", path: "/" },
-  { name: "Experience", path: "/experience" },
-  { name: "Gallery", path: "/gallery" },
-  { name: "Dates & Booking", path: "/booking" },
-  { name: "Contact", path: "/contact" },
+const navItems = [
+  { name: "home", path: "/" },
+  { name: "experience", path: "/experience" },
+  { name: "gallery", path: "/gallery" },
+  { name: "dates & booking", path: "/booking" },
+  { name: "contact", path: "/contact" },
 ];
 
 export function Footer() {
   const navigate = useNavigate();
 
-  // Scroll to top when clicking footer links
   const handleNavClick = (path: string) => {
     navigate(path);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' }), 0);
   };
 
   return (
-    <footer className="bg-slate-900 text-white">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          {/* Brand */}
-          <div className="space-y-4">
-            <button 
-              onClick={() => handleNavClick("/")}
-              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-            >
-              <Bike className="h-8 w-8 text-amber-400" />
-              <span className="font-heading text-xl font-semibold">
-                Cycle Logic
-              </span>
-            </button>
-            <p className="text-white/70 text-sm leading-relaxed">
-              Experience Colombia through the eyes of cyclists who call it home. 
-              Eleven days of exceptional riding, deep cultural immersion, and 
-              genuine connections.
+    <footer className="bg-white border-t border-slate-200">
+      <div className="container mx-auto px-6 py-12">
+        <div className="grid md:grid-cols-3 gap-12">
+          {/* Logo & Tagline */}
+          <div>
+            <img 
+              src="/logo.png" 
+              alt="PedalTheWorld" 
+              className="h-10 w-auto mb-4"
+            />
+            <p className="text-sm text-slate-600 lowercase mb-3">
+              colombia's ultimate cycling experience
+            </p>
+            <p className="text-xs text-slate-500 lowercase italic">
+              founded by cycle logic
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-heading text-lg font-semibold mb-4 text-amber-400">
-              Quick Links
+            <h3 className="font-heading text-lg font-extrabold text-[#606C38] mb-4 lowercase">
+              quick links
             </h3>
             <ul className="space-y-2">
-              {navLinks.map((link) => (
-                <li key={link.name}>
+              {navItems.map((item) => (
+                <li key={item.name}>
                   <button
-                    onClick={() => handleNavClick(link.path)}
-                    className="text-white/70 hover:text-amber-400 transition-colors text-sm block text-left"
+                    onClick={() => handleNavClick(item.path)}
+                    className="text-sm text-slate-600 hover:text-[#DC4712] transition-colors lowercase"
                   >
-                    {link.name}
+                    {item.name}
                   </button>
                 </li>
               ))}
@@ -61,59 +57,53 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-heading text-lg font-semibold mb-4 text-amber-400">
-              Contact Us
+            <h3 className="font-heading text-lg font-extrabold text-[#606C38] mb-4 lowercase">
+              get in touch
             </h3>
             <ul className="space-y-3">
-              <li className="flex items-center gap-3 text-white/70 text-sm">
-                <MapPin className="h-4 w-4 text-amber-400 flex-shrink-0" />
-                <span>Medellín, Colombia</span>
-              </li>
-              <li className="flex items-start gap-3 text-white/70 text-sm">
-                <Phone className="h-4 w-4 text-amber-400 flex-shrink-0 mt-0.5" />
+              <li className="flex items-start gap-3">
+                <Mail className="h-5 w-5 text-[#EE712B] flex-shrink-0 mt-0.5" />
                 <div>
-                  <a href="tel:+12503744515" className="hover:text-amber-400 transition-colors block">
-                    250-374-4515
+                  <a 
+                    href="mailto:pedaltheworld@gmail.com" 
+                    className="text-sm text-slate-600 hover:text-[#DC4712] transition-colors lowercase"
+                  >
+                    pedaltheworld@gmail.com
                   </a>
-                  <span className="text-xs">Mon-Fri 9AM-6PM MT</span>
                 </div>
               </li>
-              <li className="flex items-center gap-3 text-white/70 text-sm">
-                <Mail className="h-4 w-4 text-amber-400 flex-shrink-0" />
-                <a href="mailto:pedaltheworld@gmail.com" className="hover:text-amber-400 transition-colors">
-                  pedaltheworld@gmail.com
-                </a>
+              <li className="flex items-start gap-3">
+                <Phone className="h-5 w-5 text-[#EE712B] flex-shrink-0 mt-0.5" />
+                <div>
+                  <a 
+                    href="tel:+12503744515" 
+                    className="text-sm text-slate-600 hover:text-[#DC4712] transition-colors"
+                  >
+                    250-374-4515
+                  </a>
+                  <p className="text-xs text-slate-500 lowercase">canada pst</p>
+                </div>
               </li>
-            </ul>
-          </div>
-
-          {/* Tour Info */}
-          <div>
-            <h3 className="font-heading text-lg font-semibold mb-4 text-amber-400">
-              Tour Details
-            </h3>
-            <ul className="space-y-2 text-sm text-white/70">
-              <li>• 11-day guided tours</li>
-              <li>• Road & gravel cycling</li>
-              <li>• Coffee region & Andes</li>
-              <li>• Max 12 riders per tour</li>
-              <li>• January-February 2025</li>
-              <li>• $5,600 CAD per person</li>
+              <li className="flex items-start gap-3">
+                <MapPin className="h-5 w-5 text-[#EE712B] flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-sm text-slate-600 lowercase">
+                    medellín, colombia
+                  </p>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 mt-12 pt-8">
+        <div className="mt-12 pt-8 border-t border-slate-200">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-white/50 text-sm text-center md:text-left">
-              © {new Date().getFullYear()} Cycle Logic Colombia Tours. All rights reserved.
+            <p className="text-sm text-slate-500 lowercase">
+              © {new Date().getFullYear()} pedaltheworld. all rights reserved.
             </p>
-          </div>
-          
-          <div className="mt-4 text-center">
-            <p className="text-xs text-white/40">
-              Founded and operated by Cycle Logic • Canadian-based company • Est. 2018
+            <p className="text-xs text-slate-400 lowercase italic">
+              founded by cycle logic
             </p>
           </div>
         </div>
