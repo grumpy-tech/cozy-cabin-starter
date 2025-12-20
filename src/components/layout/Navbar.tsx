@@ -6,11 +6,11 @@ import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  { name: "home", path: "/" },
-  { name: "experience", path: "/experience" },
-  { name: "gallery", path: "/gallery" },
-  { name: "dates & booking", path: "/booking" },
-  { name: "contact", path: "/contact" },
+  { name: "Home", path: "/" },
+  { name: "Experience", path: "/experience" },
+  { name: "Gallery", path: "/gallery" },
+  { name: "Dates & Booking", path: "/booking" },
+  { name: "Contact", path: "/contact" },
 ];
 
 export function Navbar() {
@@ -45,19 +45,17 @@ export function Navbar() {
       )}
     >
       <nav className="container mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo Text - UPPERCASE */}
         <button 
           onClick={() => handleNavClick("/")}
           className="flex items-center group cursor-pointer"
         >
-          <img 
-            src="/logo.png" 
-            alt="PedalTheWorld" 
-            className="h-10 w-auto transition-transform group-hover:scale-105"
-          />
+          <h1 className="font-heading text-2xl md:text-3xl font-extrabold text-[#606C38] uppercase hover:text-[#DC4712] transition-colors duration-300">
+            PedalTheWorld
+          </h1>
         </button>
 
-        {/* Desktop Navigation - RIGHT SIDE + Book Now Button */}
+        {/* Desktop Navigation - RIGHT SIDE */}
         <div className="hidden md:flex items-center gap-8">
           <ul className="flex items-center gap-8">
             {navItems.map((item) => (
@@ -65,7 +63,7 @@ export function Navbar() {
                 <button
                   onClick={() => handleNavClick(item.path)}
                   className={cn(
-                    "relative px-1 py-2 text-sm font-medium lowercase transition-all duration-300",
+                    "relative px-1 py-2 text-sm font-medium transition-all duration-300",
                     "after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-[#DC4712] after:transition-all after:duration-300",
                     "hover:after:w-full",
                     location.pathname === item.path
@@ -82,8 +80,8 @@ export function Navbar() {
           {/* Book Now Button */}
           <button onClick={() => handleNavClick("/booking")}>
             <div className="group relative overflow-hidden bg-[#DC4712] px-6 py-2.5 transition-all duration-300 hover:bg-[#c33e10]">
-              <span className="relative z-10 text-sm font-semibold text-white lowercase">
-                book now
+              <span className="relative z-10 text-sm font-semibold text-white">
+                Book Now
               </span>
               <div className="absolute inset-0 -translate-x-full bg-[#EE712B] transition-transform duration-300 group-hover:translate-x-0"></div>
             </div>
@@ -120,7 +118,7 @@ export function Navbar() {
                   <button
                     onClick={() => handleNavClick(item.path)}
                     className={cn(
-                      "block w-full text-left px-4 py-3 text-sm font-medium lowercase transition-colors",
+                      "block w-full text-left px-4 py-3 text-sm font-medium transition-colors",
                       location.pathname === item.path
                         ? "bg-[#FBF7F7] text-[#DC4712] border-l-4 border-[#DC4712]"
                         : "text-slate-700 hover:bg-slate-50"
@@ -137,8 +135,8 @@ export function Navbar() {
                 className="pt-2"
               >
                 <button onClick={() => handleNavClick("/booking")} className="w-full">
-                  <div className="bg-[#DC4712] hover:bg-[#c33e10] text-white text-sm font-semibold lowercase px-4 py-3 text-center transition-colors">
-                    book now
+                  <div className="bg-[#DC4712] hover:bg-[#c33e10] text-white text-sm font-semibold px-4 py-3 text-center transition-colors">
+                    Book Now
                   </div>
                 </button>
               </motion.li>

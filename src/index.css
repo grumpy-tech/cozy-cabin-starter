@@ -93,12 +93,11 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* BOLD LOWERCASE HEADINGS - Like "Sightseeing" reference */
+  /* HEADINGS - Normal capitalization (will use uppercase class when needed) */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Outfit', 'Inter', sans-serif;
     font-weight: 800;
     letter-spacing: -0.02em;
-    text-transform: lowercase;
   }
 
   /* Remove border-radius */
@@ -116,7 +115,6 @@
   .font-heading {
     font-family: 'Outfit', 'Inter', sans-serif;
     font-weight: 800;
-    text-transform: lowercase;
   }
 
   .font-body {
@@ -135,7 +133,7 @@
     box-shadow: 0 2px 15px rgba(220, 71, 18, 0.08);
   }
 
-  /* GRAINY TEXTURE - CSS noise with warm colors */
+  /* GRAINY TEXTURE */
   .texture-grainy {
     position: relative;
     background: linear-gradient(135deg, #FBF7F7 0%, #F1E9E3 100%);
@@ -173,7 +171,7 @@
     z-index: 2;
   }
 
-  /* CSS noise filter for authentic grain */
+  /* CSS noise filter */
   .texture-noise {
     position: relative;
     background: linear-gradient(135deg, #FBF7F7 0%, #F1E9E3 50%, #EE712B10 100%);

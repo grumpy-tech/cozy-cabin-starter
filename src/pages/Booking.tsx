@@ -176,12 +176,10 @@ const Booking = () => {
                   <div className="absolute inset-0 -translate-x-full bg-[#EE712B] transition-transform duration-300 group-hover:translate-x-0"></div>
                 </div>
               </button>
-              <a href="tel:+12503744515">
-                <div className="border-2 border-white text-white hover:bg-white hover:text-[#606C38] px-8 py-4 text-base font-semibold lowercase transition-all duration-300 shadow-lg flex items-center gap-2 justify-center">
-                  <Phone className="h-5 w-5" />
-                  call: 250-374-4515
-                </div>
-              </a>
+              <div className="border-2 border-white text-white px-8 py-4 text-base font-semibold lowercase flex items-center gap-2 justify-center cursor-default">
+                <Phone className="h-5 w-5" />
+                call: 250-374-4515
+              </div>
             </div>
           </div>
         </div>

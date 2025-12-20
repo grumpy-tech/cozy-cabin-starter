@@ -46,50 +46,35 @@ const Index = () => {
               transition={{ duration: 0.8 }}
               className="p-8 md:p-12"
             >
-              <p className="text-black text-xs md:text-sm font-semibold tracking-wider uppercase mb-4">
-                founded by cycle logic
-              </p>
-              
-              <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight lowercase">
-                <span className="text-black">colombia's ultimate</span>
-                <br />
-                <span className="text-black">cycling experience</span>
+              {/* NEW HEADLINE */}
+              <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-extrabold mb-3 leading-tight text-black uppercase">
+                Ride Colombia<br />Like A Pro
               </h1>
               
-              <p className="text-slate-800 text-base md:text-lg mb-8 leading-relaxed lowercase">
-                legendary andes climbs • authentic culture • 
-                exceptional food • mountain retreat accommodation
+              <p className="text-black text-xs md:text-sm font-semibold tracking-wider uppercase mb-8">
+                Founded by Cycle Logic
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 mb-6">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <button 
                   onClick={handleBookingClick}
                   className="group relative overflow-hidden bg-[#DC4712] px-8 py-4 transition-all duration-300 hover:bg-[#c33e10] shadow-lg hover:shadow-xl"
                 >
-                  <span className="relative z-10 text-base font-semibold text-white lowercase">
-                    view tour dates
+                  <span className="relative z-10 text-base font-semibold text-white">
+                    View Tour Dates
                   </span>
                   <div className="absolute inset-0 -translate-x-full bg-[#EE712B] transition-transform duration-300 group-hover:translate-x-0"></div>
                 </button>
                 
-                {/* WHITE BUTTON - Better visibility */}
                 <button 
                   onClick={() => {
                     navigate('/contact');
                     setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' }), 0);
                   }}
-                  className="bg-white border-2 border-white text-[#606C38] hover:bg-transparent hover:text-white px-8 py-4 text-base font-semibold lowercase transition-all duration-300 shadow-lg hover:shadow-xl"
+                  className="bg-white border-2 border-white text-[#606C38] hover:bg-transparent hover:text-white px-8 py-4 text-base font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
-                  get in touch
+                  Get In Touch
                 </button>
-              </div>
-
-              <div className="flex flex-wrap gap-4 text-slate-800 text-sm lowercase">
-                <span>11 days</span>
-                <span>•</span>
-                <span>$5,600 cad</span>
-                <span>•</span>
-                <span>max 12 riders</span>
               </div>
             </motion.div>
           </div>
@@ -108,19 +93,19 @@ const Index = () => {
                 viewport={{ once: true }}
                 className="order-2 md:order-1"
               >
-                <h2 className="font-heading text-5xl md:text-7xl lg:text-8xl font-extrabold mb-8 leading-tight text-[#606C38] lowercase">
-                  your mountain<br />retreat
+                <h2 className="font-heading text-5xl md:text-7xl lg:text-8xl font-extrabold mb-8 leading-tight text-[#606C38] uppercase">
+                  Your Mountain<br />Retreat
                 </h2>
                 
-                <p className="text-lg md:text-xl text-slate-700 mb-10 leading-relaxed font-light max-w-xl lowercase">
-                  escape to the colombian andes where adventure meets comfort. nestled in the mountains outside medellín, our retreat is your sanctuary after legendary rides—where coffee is fresh, sunsets are golden, and friendships are forged.
+                <p className="text-lg md:text-xl text-slate-700 mb-10 leading-relaxed font-light max-w-xl">
+                  Escape to the Colombian Andes where adventure meets comfort. Nestled in the mountains outside Medellín, our retreat is your sanctuary after legendary rides—where coffee is fresh, sunsets are golden, and friendships are forged.
                 </p>
                 
                 <button 
                   onClick={handleExperienceClick}
-                  className="group inline-flex items-center gap-2 text-[#606C38] font-medium text-lg border-b-2 border-[#606C38] pb-1 hover:border-[#DC4712] hover:text-[#DC4712] transition-all duration-300 lowercase"
+                  className="group inline-flex items-center gap-2 text-[#606C38] font-medium text-lg border-b-2 border-[#606C38] pb-1 hover:border-[#DC4712] hover:text-[#DC4712] transition-all duration-300"
                 >
-                  discover the experience
+                  Discover The Experience
                   <ArrowRight className="h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
               </motion.div>
@@ -156,11 +141,11 @@ const Index = () => {
               viewport={{ once: true }}
               className="text-center"
             >
-              <h2 className="font-heading text-4xl md:text-6xl font-extrabold mb-4 text-[#606C38] lowercase">
-                what your days look like
+              <h2 className="font-heading text-4xl md:text-6xl font-extrabold mb-4 text-[#606C38] uppercase">
+                What Your Days Look Like
               </h2>
-              <p className="text-lg text-slate-700 max-w-2xl mx-auto lowercase">
-                every day balances world-class riding with authentic cultural immersion
+              <p className="text-lg text-slate-700 max-w-2xl mx-auto">
+                Every day balances world-class riding with authentic cultural immersion
               </p>
             </motion.div>
           </div>
@@ -183,7 +168,7 @@ const Index = () => {
               </div>
               
               <div className="md:col-span-1 bg-white p-6 md:p-8 shadow-lg border-l-4 border-[#EE712B] flex flex-col justify-center h-[450px]">
-                <h3 className="font-heading text-2xl font-extrabold mb-4 text-[#606C38] lowercase">the riding</h3>
+                <h3 className="font-heading text-2xl font-extrabold mb-4 text-[#606C38] uppercase">The Riding</h3>
                 
                 <div className="bg-slate-50 p-3 mb-4">
                   <svg viewBox="0 0 500 140" className="w-full">
@@ -199,13 +184,13 @@ const Index = () => {
                       opacity="0.15"
                     />
                   </svg>
-                  <p className="text-xs text-slate-500 mt-2 text-center lowercase">
+                  <p className="text-xs text-slate-500 mt-2 text-center">
                     60-100km daily | 1,000-2,000m climbing
                   </p>
                 </div>
                 
-                <p className="text-slate-700 leading-relaxed mb-3 text-sm lowercase">
-                  roads where pro teams train—challenging, stunning, fully supported.
+                <p className="text-slate-700 leading-relaxed mb-3 text-sm">
+                  Roads where pro teams train—challenging, stunning, fully supported.
                 </p>
               </div>
             </div>
@@ -222,9 +207,9 @@ const Index = () => {
             <div className="grid md:grid-cols-3 gap-0">
               <div className="md:col-span-1 bg-white p-6 md:p-8 shadow-lg border-r-4 border-[#DC4712] flex flex-col justify-center h-[450px] order-2 md:order-1">
                 <Coffee className="h-10 w-10 text-[#EE712B] mb-4" />
-                <h3 className="font-heading text-2xl font-extrabold mb-4 text-[#606C38] lowercase">the culture</h3>
-                <p className="text-slate-700 leading-relaxed text-sm lowercase">
-                  coffee farm visits with families who've been growing for generations.
+                <h3 className="font-heading text-2xl font-extrabold mb-4 text-[#606C38] uppercase">The Culture</h3>
+                <p className="text-slate-700 leading-relaxed text-sm">
+                  Coffee farm visits with families who've been growing for generations.
                 </p>
               </div>
 
@@ -256,9 +241,9 @@ const Index = () => {
               
               <div className="md:col-span-1 bg-white p-6 md:p-8 shadow-lg border-l-4 border-[#606C38] flex flex-col justify-center h-[450px]">
                 <Users className="h-10 w-10 text-[#EE712B] mb-4" />
-                <h3 className="font-heading text-2xl font-extrabold mb-4 text-[#606C38] lowercase">the food</h3>
-                <p className="text-slate-700 leading-relaxed text-sm lowercase">
-                  colombian coffee that redefines what you thought you knew.
+                <h3 className="font-heading text-2xl font-extrabold mb-4 text-[#606C38] uppercase">The Food</h3>
+                <p className="text-slate-700 leading-relaxed text-sm">
+                  Colombian coffee that redefines what you thought you knew.
                 </p>
               </div>
             </div>
@@ -276,19 +261,19 @@ const Index = () => {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="font-heading text-4xl md:text-6xl font-extrabold mb-6 lowercase">
-              ready to experience colombia?
+            <h2 className="font-heading text-4xl md:text-6xl font-extrabold mb-6 uppercase">
+              Ready To Experience Colombia?
             </h2>
-            <p className="text-xl text-white/90 mb-10 leading-relaxed lowercase">
-              three departures in january-february 2025. limited to 12 riders per tour.
+            <p className="text-xl text-white/90 mb-10 leading-relaxed">
+              Three departures in January-February 2025. Limited to 12 riders per tour.
             </p>
             <div className="flex flex-col sm:flex-row gap-5 justify-center">
               <button 
                 onClick={handleBookingClick}
                 className="group relative overflow-hidden bg-[#DC4712] px-10 py-5 transition-all duration-300 hover:bg-[#c33e10] shadow-2xl"
               >
-                <span className="relative z-10 text-lg font-semibold text-white lowercase">
-                  view dates & book your spot
+                <span className="relative z-10 text-lg font-semibold text-white">
+                  View Dates & Book Your Spot
                 </span>
                 <div className="absolute inset-0 -translate-x-full bg-[#EE712B] transition-transform duration-300 group-hover:translate-x-0"></div>
               </button>
