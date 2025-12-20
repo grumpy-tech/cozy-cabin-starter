@@ -167,9 +167,9 @@ const Booking = () => {
               contact us to check availability and reserve your spot. tours fill 8+ weeks in advance.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={handleContactClick}>
+              <button onClick={handleContactClick} className="w-full sm:w-auto">
                 <div className="group relative overflow-hidden bg-[#DC4712] px-8 py-4 transition-all duration-300 hover:bg-[#c33e10] shadow-xl">
-                  <span className="relative z-10 text-base font-semibold text-white lowercase flex items-center gap-2">
+                  <span className="relative z-10 text-base font-semibold text-white lowercase flex items-center gap-2 justify-center">
                     <Mail className="h-5 w-5" />
                     email us to book
                   </span>

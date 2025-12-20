@@ -18,8 +18,17 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-white border-t border-slate-200">
-      <div className="container mx-auto px-6 py-12">
+    <footer className="bg-white border-t border-slate-200 relative overflow-hidden">
+      {/* Mountain illustration as subtle background */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 opacity-5">
+        <img 
+          src="/mountains-illustration.png" 
+          alt="" 
+          className="w-full h-full object-cover object-bottom"
+        />
+      </div>
+      
+      <div className="container mx-auto px-6 py-12 relative z-10">
         <div className="grid md:grid-cols-3 gap-12">
           {/* Logo & Tagline */}
           <div>

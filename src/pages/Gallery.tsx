@@ -1,53 +1,46 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+const categories = [
+  "all photos",
+  "epic climbs",
+  "mountain views",
+  "colombian culture",
+  "delicious food",
+  "happy riders",
+  "coffee farms",
+  "off the bike"
+];
 
 const Gallery = () => {
   const navigate = useNavigate();
+  const [activeCategory, setActiveCategory] = useState("all photos");
 
-  // FIXED: Properly scrolls to top of gallery page
   const handleBookingClick = () => {
     navigate('/booking');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' }), 0);
   };
 
-  const categories = [
-    { id: "all", name: "All Photos", description: "Every moment from our Colombia tours" },
-    { id: "riding", name: "The Riding", description: "Action shots of climbing, descending, and group rides" },
-    { id: "landscapes", name: "The Landscapes", description: "Andes vistas and coffee plantations" },
-    { id: "culture", name: "The Culture", description: "Local interactions and authentic experiences" },
-    { id: "food", name: "The Food", description: "Colombian cuisine moments" },
-    { id: "people", name: "The People", description: "Riders, locals, and celebrations" },
-    { id: "offbike", name: "Off The Bike", description: "Rest days and social moments" }
-  ];
+  // Placeholder images (you'll replace with real photos)
+  const placeholderPhotos = Array(12).fill(null).map((_, i) => ({
+    id: i + 1,
+    category: categories[Math.floor(Math.random() * (categories.length - 1)) + 1],
+    caption: `photo ${i + 1}`,
+  }));
 
-  const sampleCaptions = [
-    "Morning light in Colombia's coffee heartland",
-    "Earning every meter to the Alto de Minas",
-    "Three generations sharing the coffee harvest",
-    "The descent that makes the climb worthwhile",
-    "Fresh tinto with Señor Rodriguez at his finca",
-    "Market day in Jardín—where cycling takes a break",
-    "Summit celebration at 3,200 meters",
-    "Bandeja paisa: fuel for serious riders",
-    "Gravel roads winding through shade-grown coffee",
-    "Twelve strangers becoming lifelong cycling friends",
-    "Colonial architecture in afternoon golden hour",
-    "The support vehicle you hope you never need",
-    "Cooling off after 2,000 meters of climbing",
-    "Where the pavement ends, the adventure deepens",
-    "Sunset paseo in Salamina's town square"
-  ];
+  const filteredPhotos = activeCategory === "all photos" 
+    ? placeholderPhotos 
+    : placeholderPhotos.filter(p => p.category === activeCategory);
 
   return (
     <main className="min-h-screen pt-20">
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="relative py-16 bg-gradient-to-b from-[#51829B] to-[#9BB0C1]">
+      {/* Hero */}
+      <section className="relative py-20 md:py-28 bg-gradient-to-b from-[#606C38] to-[#7a8c4a]">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -55,104 +48,108 @@ const Gallery = () => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-white">
-              Every Mile Tells a Story
+            <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 text-white lowercase">
+              tour gallery
             </h1>
-            <p className="text-lg md:text-xl text-white/90">
-              Moments from our Colombia tours that capture the rides, landscapes, connections, 
-              and memories. This could be your story next season.
+            <p className="text-xl text-white/90 leading-relaxed lowercase">
+              see what awaits you in the colombian andes
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Gallery Categories & Content */}
-      <section className="py-20 md:py-28 bg-white texture-dots">
+      {/* Categories */}
+      <section className="py-8 bg-white sticky top-20 z-40 border-b border-slate-200">
         <div className="container mx-auto px-4">
-          <Tabs defaultValue="all" className="w-full">
-            <TabsList className="flex flex-wrap justify-center mb-12 h-auto gap-2 bg-transparent">
-              {categories.map((category) => (
-                <TabsTrigger
-                  key={category.id}
-                  value={category.id}
-                  className="px-6 py-3 data-[state=active]:bg-[#F6995C] data-[state=active]:text-white border-2 border-transparent data-[state=active]:border-[#F6995C] rounded-none transition-all"
-                >
-                  {category.name}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-
+          <div className="flex flex-wrap justify-center gap-3">
             {categories.map((category) => (
-              <TabsContent key={category.id} value={category.id} className="mt-8">
-                <div className="text-center mb-12">
-                  <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                    {category.description}
-                  </p>
-                </div>
-
-                {/* Masonry Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {sampleCaptions.slice(0, 12).map((caption, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.4, delay: index * 0.05 }}
-                      viewport={{ once: true }}
-                      className="group relative aspect-[4/3] bg-slate-100 overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-br from-slate-300 to-slate-200 flex items-center justify-center">
-                        <span className="text-6xl opacity-20">🚴</span>
-                      </div>
-                      
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <div className="absolute bottom-0 left-0 right-0 p-4">
-                          <p className="text-white text-sm font-medium">{caption}</p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                <div className="text-center mt-12">
-                  <p className="text-sm text-slate-500 italic">
-                    📸 Add your tour photos here (60-80 images recommended)
-                  </p>
-                </div>
-              </TabsContent>
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-4 py-2 text-sm font-medium lowercase transition-all duration-300 ${
+                  activeCategory === category
+                    ? 'bg-[#DC4712] text-white shadow-md'
+                    : 'bg-[#FBF7F7] text-[#606C38] hover:bg-[#F1E9E3]'
+                }`}
+              >
+                {category}
+              </button>
             ))}
-          </Tabs>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Grid */}
+      <section className="py-20 bg-[#FBF7F7]">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredPhotos.map((photo, index) => (
+              <motion.div
+                key={photo.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                viewport={{ once: true }}
+                className="group relative aspect-[4/3] overflow-hidden bg-slate-200 shadow-md hover:shadow-xl transition-shadow cursor-pointer"
+              >
+                {/* Placeholder - replace with actual images */}
+                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#606C38] to-[#7a8c4a]">
+                  <span className="text-white/30 text-6xl">🚴</span>
+                </div>
+                
+                {/* Caption Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <div>
+                    <p className="text-white font-medium lowercase">{photo.caption}</p>
+                    <p className="text-white/70 text-sm lowercase">{photo.category}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {filteredPhotos.length === 0 && (
+            <div className="text-center py-20">
+              <p className="text-slate-500 text-lg lowercase">no photos in this category yet</p>
+            </div>
+          )}
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 md:py-28 bg-[#EADFB4] texture-subtle">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-[#51829B]">
-              Ready to Create Your Own Story?
+      <section className="py-20 md:py-28 bg-[#606C38] text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <img 
+            src="/mountains-illustration.png" 
+            alt="" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto text-center"
+          >
+            <h2 className="font-heading text-4xl md:text-6xl font-extrabold mb-6 lowercase">
+              be in the next gallery
             </h2>
-            <p className="text-lg text-slate-700 mb-8">
-              These photos represent just a fraction of what you'll experience over 11 days. 
-              The climbs, the culture, the connections—they're waiting for you.
+            <p className="text-xl text-white/90 mb-10 leading-relaxed lowercase">
+              join us for an unforgettable 11-day adventure through colombia
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                onClick={handleBookingClick}
-                size="lg"
-                className="bg-[#F6995C] hover:bg-[#e88849] text-white rounded-none shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                View Tour Dates
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-2 border-[#51829B] text-[#51829B] hover:bg-[#51829B] hover:text-white rounded-none shadow-md hover:shadow-lg transition-all duration-300"
-              >
-                Join Our Newsletter
-              </Button>
-            </div>
-          </div>
+            <button 
+              onClick={handleBookingClick}
+              className="group relative overflow-hidden bg-[#DC4712] px-10 py-5 transition-all duration-300 hover:bg-[#c33e10] shadow-2xl"
+            >
+              <span className="relative z-10 text-lg font-semibold text-white lowercase">
+                view dates & book your spot
+              </span>
+              <div className="absolute inset-0 -translate-x-full bg-[#EE712B] transition-transform duration-300 group-hover:translate-x-0"></div>
+            </button>
+          </motion.div>
         </div>
       </section>
 
