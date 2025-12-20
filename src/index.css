@@ -6,73 +6,74 @@
 
 @layer base {
   :root {
-    /* NEW Color Palette: #F4F6FF, #F3C623, #EB8317, #10375C */
+    /* NEW Warm Earth-Tone Palette */
     --background: 0 0% 100%;
-    --foreground: 210 70% 15%;
+    --foreground: 30 15% 25%;
 
     --card: 0 0% 98%;
-    --card-foreground: 210 70% 15%;
+    --card-foreground: 30 15% 25%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 70% 15%;
+    --popover-foreground: 30 15% 25%;
 
-    /* Primary: Navy #10375C */
-    --primary: 209 70% 21%;
-    --primary-foreground: 240 100% 99%;
+    /* Primary: Deep Rust #DC4712 */
+    --primary: 14 85% 47%;
+    --primary-foreground: 18 33% 98%;
 
-    /* Secondary: Light Blue/White #F4F6FF */
-    --secondary: 240 100% 98%;
-    --secondary-foreground: 209 70% 21%;
+    /* Secondary: Cream #FBF7F7 */
+    --secondary: 0 33% 98%;
+    --secondary-foreground: 30 15% 25%;
 
-    /* Accent Yellow: #F3C623 */
-    --accent: 45 89% 55%;
-    --accent-foreground: 209 70% 21%;
+    /* Accent Orange: #EE712B */
+    --accent: 20 83% 56%;
+    --accent-foreground: 18 33% 98%;
 
-    /* Muted */
-    --muted: 240 20% 96%;
-    --muted-foreground: 210 10% 45%;
+    /* Muted Beige: #F1E9E3 */
+    --muted: 30 33% 92%;
+    --muted-foreground: 30 10% 45%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 18 33% 98%;
 
-    --border: 240 15% 90%;
-    --input: 240 15% 90%;
-    --ring: 209 70% 21%;
+    --border: 30 20% 88%;
+    --input: 30 20% 88%;
+    --ring: 14 85% 47%;
 
     /* NO BORDER RADIUS */
     --radius: 0rem;
 
     /* Color variables */
-    --light-blue: 240 100% 98%;    /* #F4F6FF */
-    --yellow: 45 89% 55%;          /* #F3C623 */
-    --orange: 22 84% 51%;          /* #EB8317 */
-    --navy: 209 70% 21%;           /* #10375C */
+    --cream: 0 33% 98%;           /* #FBF7F7 */
+    --beige: 30 33% 92%;          /* #F1E9E3 */
+    --orange: 20 83% 56%;         /* #EE712B */
+    --rust: 14 85% 47%;           /* #DC4712 */
+    --olive: 76 29% 32%;          /* #606C38 */
 
     /* Shadows */
-    --shadow-soft: 0 2px 15px rgba(16, 55, 92, 0.08);
-    --shadow-elevated: 0 4px 25px rgba(16, 55, 92, 0.12);
+    --shadow-soft: 0 2px 15px rgba(220, 71, 18, 0.08);
+    --shadow-elevated: 0 4px 25px rgba(220, 71, 18, 0.12);
   }
 
   .dark {
-    --background: 209 70% 10%;
+    --background: 30 15% 10%;
     --foreground: 0 0% 95%;
-    --card: 209 70% 12%;
+    --card: 30 15% 12%;
     --card-foreground: 0 0% 95%;
-    --popover: 209 70% 10%;
+    --popover: 30 15% 10%;
     --popover-foreground: 0 0% 95%;
-    --primary: 209 70% 21%;
-    --primary-foreground: 240 100% 99%;
-    --secondary: 240 20% 25%;
+    --primary: 14 85% 47%;
+    --primary-foreground: 18 33% 98%;
+    --secondary: 30 20% 25%;
     --secondary-foreground: 0 0% 95%;
-    --muted: 209 15% 20%;
-    --muted-foreground: 209 20% 65%;
-    --accent: 45 89% 55%;
-    --accent-foreground: 209 70% 10%;
+    --muted: 30 15% 20%;
+    --muted-foreground: 30 20% 65%;
+    --accent: 20 83% 56%;
+    --accent-foreground: 30 15% 10%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 209 40% 98%;
-    --border: 209 15% 20%;
-    --input: 209 15% 20%;
-    --ring: 209 70% 21%;
+    --destructive-foreground: 30 40% 98%;
+    --border: 30 15% 20%;
+    --input: 30 15% 20%;
+    --ring: 14 85% 47%;
   }
 }
 
@@ -127,48 +128,84 @@
   }
 
   .shadow-matte {
-    box-shadow: 0 2px 15px rgba(16, 55, 92, 0.08);
+    box-shadow: 0 2px 15px rgba(220, 71, 18, 0.08);
   }
 
-  /* GRAINY GRADIENT TEXTURE - from uploaded image */
-  .texture-gradient {
+  /* GRAINY TEXTURE - Using noise pattern with warm colors */
+  .texture-grainy {
     position: relative;
+    background: linear-gradient(135deg, #FBF7F7 0%, #F1E9E3 100%);
   }
 
-  .texture-gradient::before {
+  .texture-grainy::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('/texture-gradient.png');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.15;
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(220, 71, 18, 0.02) 2px,
+        rgba(220, 71, 18, 0.02) 4px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 2px,
+        rgba(220, 71, 18, 0.02) 2px,
+        rgba(220, 71, 18, 0.02) 4px
+      );
+    opacity: 0.5;
     pointer-events: none;
     z-index: 1;
   }
 
-  .texture-gradient > * {
+  .texture-grainy > * {
     position: relative;
     z-index: 2;
   }
 
-  /* Subtle textures for variety */
+  /* Alternative: CSS noise filter for authentic grain */
+  .texture-noise {
+    position: relative;
+    background: linear-gradient(135deg, #FBF7F7 0%, #F1E9E3 50%, #EE712B10 100%);
+  }
+
+  .texture-noise::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .texture-noise > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Subtle textures */
   .texture-subtle {
     background-image: 
       repeating-linear-gradient(
         45deg,
         transparent,
         transparent 10px,
-        rgba(16, 55, 92, 0.02) 10px,
-        rgba(16, 55, 92, 0.02) 20px
+        rgba(220, 71, 18, 0.02) 10px,
+        rgba(220, 71, 18, 0.02) 20px
       );
   }
 
   .texture-dots {
-    background-image: radial-gradient(circle, rgba(16, 55, 92, 0.04) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(220, 71, 18, 0.04) 1px, transparent 1px);
     background-size: 20px 20px;
   }
 
@@ -177,15 +214,15 @@
       0deg,
       transparent,
       transparent 2px,
-      rgba(16, 55, 92, 0.03) 2px,
-      rgba(16, 55, 92, 0.03) 4px
+      rgba(220, 71, 18, 0.03) 2px,
+      rgba(220, 71, 18, 0.03) 4px
     );
   }
 
   .texture-grid {
     background-image: 
-      linear-gradient(rgba(16, 55, 92, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(16, 55, 92, 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(220, 71, 18, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(220, 71, 18, 0.03) 1px, transparent 1px);
     background-size: 30px 30px;
   }
 }
