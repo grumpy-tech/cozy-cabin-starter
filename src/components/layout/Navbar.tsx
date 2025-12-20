@@ -52,42 +52,43 @@ export function Navbar() {
         >
           <img 
             src="/logo.png" 
-            alt="Cycle Logic" 
+            alt="PedalTheWorld" 
             className="h-10 w-auto transition-transform group-hover:scale-105"
           />
         </button>
 
-        {/* Desktop Navigation - Centered */}
-        <ul className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-          {navItems.map((item) => (
-            <li key={item.name}>
-              <button
-                onClick={() => handleNavClick(item.path)}
-                className={cn(
-                  "relative px-1 py-2 text-sm font-medium lowercase transition-all duration-300",
-                  "after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-[#DC4712] after:transition-all after:duration-300",
-                  "hover:after:w-full",
-                  location.pathname === item.path
-                    ? "text-[#DC4712] after:w-full"
-                    : "text-slate-700 hover:text-[#DC4712]"
-                )}
-              >
-                {item.name}
-              </button>
-            </li>
-          ))}
-        </ul>
+        {/* Desktop Navigation - RIGHT SIDE + Book Now Button */}
+        <div className="hidden md:flex items-center gap-8">
+          <ul className="flex items-center gap-8">
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <button
+                  onClick={() => handleNavClick(item.path)}
+                  className={cn(
+                    "relative px-1 py-2 text-sm font-medium lowercase transition-all duration-300",
+                    "after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-[#DC4712] after:transition-all after:duration-300",
+                    "hover:after:w-full",
+                    location.pathname === item.path
+                      ? "text-[#DC4712] after:w-full"
+                      : "text-slate-700 hover:text-[#DC4712]"
+                  )}
+                >
+                  {item.name}
+                </button>
+              </li>
+            ))}
+          </ul>
 
-        {/* Book Now Button - ElectraX style interactive */}
-        <button onClick={() => handleNavClick("/booking")} className="hidden md:block">
-          <div className="group relative overflow-hidden bg-[#DC4712] px-6 py-2.5 transition-all duration-300 hover:bg-[#c33e10]">
-            <span className="relative z-10 text-sm font-semibold text-white lowercase">
-              book now
-            </span>
-            {/* Hover effect background */}
-            <div className="absolute inset-0 -translate-x-full bg-[#EE712B] transition-transform duration-300 group-hover:translate-x-0"></div>
-          </div>
-        </button>
+          {/* Book Now Button */}
+          <button onClick={() => handleNavClick("/booking")}>
+            <div className="group relative overflow-hidden bg-[#DC4712] px-6 py-2.5 transition-all duration-300 hover:bg-[#c33e10]">
+              <span className="relative z-10 text-sm font-semibold text-white lowercase">
+                book now
+              </span>
+              <div className="absolute inset-0 -translate-x-full bg-[#EE712B] transition-transform duration-300 group-hover:translate-x-0"></div>
+            </div>
+          </button>
+        </div>
 
         {/* Mobile Menu Button */}
         <button
